@@ -1,0 +1,33 @@
+.variables {
+  background: #000;
+}
+
+.grid {
+  display: grid;
+}
+
+header {
+  background: #000;
+}
+
+.botones {
+  margin: 0px;
+}
+
+.jumbo {
+  margin: 0px;
+}
+
+footer {
+  background: #000;
+}
+
+.home {
+  margin: 0px;
+}
+
+.profile {
+  margin: 0px;
+}
+
+/*# sourceMappingURL=main.css.map */
