@@ -1,25 +1,173 @@
-.variables {
-  background: #000;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.grid {
-  display: grid;
+.p-relative {
+  position: relative;
+}
+
+.p-absolute {
+  position: absolute;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+  align-content: center;
+}
+
+.jc-sb {
+  justify-content: space-between;
+}
+
+.text-center {
+  text-align: center;
 }
 
 header {
   background: #000;
+  color: #fff;
 }
 
-.botones {
-  margin: 0px;
+a {
+  color: #0288d1;
+  text-decoration: none;
 }
 
+a:hover {
+  color: #0471ac;
+}
+
+input[type=submit] {
+  padding: 20px 25px;
+  cursor: pointer;
+  border: 1px solid #263238;
+  border-radius: 5px;
+  background-color: #263238;
+  color: #fff;
+  transition: all 400ms;
+}
+
+input[type=submit]:hover {
+  background-color: transparent;
+  border: 1px solid #0288d1;
+  color: #0288d1;
+}
+
+input[type=text],
+input[type=password],
+input[type=email] {
+  width: 100%;
+  height: 50px;
+  padding-left: 30px;
+  border-radius: 5px;
+  border: 1px solid #90a4ae;
+  outline: none;
+}
+
+input[type=checkbox] {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  outline: none;
+}
+
+input[type=text]:focus ~ span,
+input[type=text]:valid ~ span,
+input[type=password]:focus ~ span,
+input[type=password]:valid ~ span,
+input[type=email]:focus ~ span,
+input[type=email]:valid ~ span {
+  color: #0288d1;
+}
+
+input[type=text]:focus ~ label,
+input[type=text]:valid ~ label,
+input[type=password]:focus ~ label,
+input[type=password]:valid ~ label,
+input[type=email]:focus ~ label,
+input[type=email]:valid ~ label {
+  color: #0288d1;
+  top: -15px;
+  left: -30px;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 576px) {
+  input[type=submit] {
+    padding: 16px;
+  }
+}
 .jumbo {
   margin: 0px;
 }
 
 footer {
   background: #000;
+  color: #fff;
+}
+
+.grid {
+  display: grid;
+}
+
+.div-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  padding: 15px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(https://demo.w3layouts.com/demos_new/template_demo/16-01-2020/active-login-form-demo_Free/227341457/web/images/women.jpg);
+}
+
+.login-form {
+  width: 350px;
+  padding: 30px;
+  height: auto;
+  background-color: #fff;
+}
+.login-form > p {
+  font-size: 0.8rem;
+  color: #90a4ae;
+}
+.login-form > a, .login-form > div p {
+  display: block;
+  margin: 20px 0px;
+}
+.login-form label {
+  cursor: pointer;
+}
+
+.input-group {
+  margin: 25px 0px;
+  position: relative;
+}
+.input-group i.fa-eye-slash,
+.input-group i.fa-eye {
+  pointer-events: initial;
+  cursor: pointer;
+  right: 10px;
+  top: 18px;
+}
+.input-group span,
+.input-group label {
+  top: 18px;
+  left: 0;
+  color: #90a4ae;
+  pointer-events: none;
+  transition: all 500ms;
+}
+.input-group span {
+  padding-left: 8px;
+}
+.input-group label {
+  padding-left: 30px;
 }
 
 .home {

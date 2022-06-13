@@ -1,0 +1,32 @@
+extends ../template/template
+append config 
+    - var currentPage = 'Iniciar Sesion'
+
+block header
+
+
+block content
+    div(class="div-center")
+        form(action="#", method="post" onsubmit="return false;" class="login-form")
+            h1 Iniciar sesión 
+            p Hermosas fotos libres!
+            div(class="input-group p-relative")
+                input(type="text", name="txtUser" id="txtUser" required="")
+                span(class="p-absolute"): i(class="fa fa-user")
+                label(for="txtUser" class="p-absolute") Usuario 
+            div(class="input-group p-relative")
+                input(type="password", name="txtPassword" id="txtPassword" required="")
+                span(class="p-absolute"): i(class="fa fa-key")
+                label(for="txtPassword" class="p-absolute") Contraseña
+                i(class=" p-absolute fa fa-eye" id="toggle-password")
+            div(class="d-flex align-center jc-sb")
+                div(class="d-flex align-center") 
+                    input(type="checkbox", name="chkRemember" id="chkRemember")
+                    label(for="chkRemember")  Recordarme
+                div
+                    input(type="submit", value="Iniciar sesión")
+            a(href="#") Olvide mi contraseña
+            div(class="text-center")
+                p No tienes una cuenta? 
+                    a(href="registro.html") Registrarse 
+block footer

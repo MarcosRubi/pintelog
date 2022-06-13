@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Registrarse | Pintelog</title>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <script src="https://kit.fontawesome.com/87b8bff04b.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="div-center">
+      <form class="login-form" action="#" method="post" onsubmit="return false;">
+        <h1>Registrarse</h1>
+        <p>Hermosas fotos libres!</p>
+        <div class="input-group p-relative">
+          <input type="text" name="txtUser" id="txtUser" required=""/><span class="p-absolute"><i class="fa fa-user"></i></span>
+          <label class="p-absolute" for="txtUser">Usuario </label>
+        </div>
+        <div class="input-group p-relative">
+          <input type="email" name="txtEmail" id="txtEmail" required=""/><span class="p-absolute"><i class="fa fa-envelope"></i></span>
+          <label class="p-absolute" for="txtEmail">Email </label>
+        </div>
+        <div class="input-group p-relative">
+          <input type="password" name="txtPassword" id="txtPassword" required=""/><span class="p-absolute"><i class="fa fa-key"></i></span>
+          <label class="p-absolute" for="txtPassword">Contraseña</label><i class=" p-absolute fa fa-eye" id="toggle-password"></i>
+        </div>
+        <div class="d-flex align-center jc-sb">
+          <div class="d-flex align-center"> 
+            <input type="checkbox" name="chkRemember" id="chkRemember"/>
+            <label for="chkRemember"> Recordarme</label>
+          </div>
+          <div>
+            <input type="submit" value="Registrarme"/>
+          </div>
+        </div>
+        <div class="text-center">
+          <p>Ya tienes una cuenta? <a href="iniciar-sesion.html">Iniciar sesión </a></p>
+        </div>
+      </form>
+    </div>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>

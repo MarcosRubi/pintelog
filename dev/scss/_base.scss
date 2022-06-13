@@ -3,6 +3,33 @@
 // MIXINS
 // TIPOGRAFIA
 
-.variables{
-    background: #000;
+$link: #0288d1;
+$link-hover: #0471ac;
+$btn-primary: #263238;
+$text-color: #fff;
+$text-secondary: #90a4ae;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.p-relative{
+    position: relative;
+}
+.p-absolute{
+    position: absolute;
+}
+.d-flex{
+    display: flex;
+}
+.align-center{
+    align-items: center;
+    align-content: center;
+}
+.jc-sb{
+    justify-content: space-between;
+}
+.text-center{
+    text-align: center;
 }

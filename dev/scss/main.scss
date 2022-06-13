@@ -1,8 +1,11 @@
-@import 'base';
 
-@import 'layout';
+@import 'base';
 
 @import 'components';
 
+@import 'layout';
+
+
+@import 'pages/login';
 @import 'pages/home';
 @import 'pages/profile';
