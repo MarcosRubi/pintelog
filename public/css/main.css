@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Meera Inimai", sans-serif;
 }
 
 .p-relative {
@@ -25,8 +26,27 @@
   justify-content: space-between;
 }
 
+.jc-end {
+  justify-content: end;
+}
+
 .text-center {
   text-align: center;
+}
+
+.subtitle, .modal > p, .login-form > p {
+  font-size: 0.8rem;
+  color: #90a4ae;
+  margin: 5px 0px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.close {
+  font-family: "Maven Pro", sans-serif;
 }
 
 header {
@@ -98,11 +118,6 @@ input[type=email]:valid ~ label {
   font-size: 0.8rem;
 }
 
-@media (max-width: 576px) {
-  input[type=submit] {
-    padding: 16px;
-  }
-}
 .jumbo {
   margin: 0px;
 }
@@ -110,10 +125,6 @@ input[type=email]:valid ~ label {
 footer {
   background: #000;
   color: #fff;
-}
-
-.grid {
-  display: grid;
 }
 
 .div-center {
@@ -132,9 +143,9 @@ footer {
   height: auto;
   background-color: #fff;
 }
-.login-form > p {
-  font-size: 0.8rem;
-  color: #90a4ae;
+.login-form.hide {
+  filter: blur(5px) brightness(30%);
+  pointer-events: none;
 }
 .login-form > a, .login-form > div p {
   display: block;
@@ -170,12 +181,84 @@ footer {
   padding-left: 30px;
 }
 
+.modal-center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  display: none;
+  filter: blur(40);
+}
+.modal-center.show {
+  display: block;
+}
+
+.modal {
+  background: #fff;
+  padding: 20px 40px;
+  border-radius: 5px;
+  width: 600px;
+}
+.modal > p {
+  width: 85%;
+  line-height: 1.3;
+}
+.modal div p {
+  margin-top: 15px;
+}
+.modal .close {
+  font-size: 1.2rem;
+  color: #0288d1;
+  padding: 0px 15px;
+  cursor: pointer;
+}
+.modal .close:hover {
+  color: #0471ac;
+}
+.modal .input-group {
+  margin: 25px 0px 10px 0px;
+}
+
 .home {
   margin: 0px;
 }
 
 .profile {
   margin: 0px;
+}
+
+@media (max-width: 768px) {
+  .modal-center {
+    width: 75%;
+  }
+  .modal-center .modal {
+    width: auto;
+  }
+}
+@media (max-width: 576px) {
+  h2 {
+    font-size: 1.2rem;
+    margin: 10px 0px;
+  }
+
+  input[type=submit] {
+    padding: 16px;
+  }
+
+  .login-form {
+    padding: 20px;
+  }
+
+  .modal {
+    padding: 20px;
+  }
+  .modal > p {
+    width: 95%;
+  }
+
+  .modal-center {
+    width: 95%;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

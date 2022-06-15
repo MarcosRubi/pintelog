@@ -1,6 +1,40 @@
 // GRID
 // ESTRUCTURA DEL SITIO
 
-.grid{
-    display: grid;
+@media (max-width:992px) {}
+
+@media (max-width:768px) {
+	.modal-center {
+		width: 75%;
+
+		.modal {
+			width: auto;
+		}
+	}
+}
+
+
+@media (max-width:576px) {
+	h2 {
+		font-size: 1.2rem;
+		margin: 10px 0px;
+	}
+
+	input[type="submit"] {
+		padding: 16px;
+	}
+	.login-form{
+		padding: 20px;
+	}
+	.modal {
+		padding: 20px;
+
+		&>p {
+			width: 95%;
+		}
+	}
+	.modal-center {
+		width: 95%;
+
+	}
 }

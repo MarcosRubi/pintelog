@@ -61,9 +61,3 @@ input[type="email"]:valid ~  label{
     left: -30px;
     font-size: 0.8rem;
 }
-
-@media (max-width:576px) {
-    input[type="submit"]{
-        padding: 16px;
-    }
-}

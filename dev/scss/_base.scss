@@ -8,11 +8,13 @@ $link-hover: #0471ac;
 $btn-primary: #263238;
 $text-color: #fff;
 $text-secondary: #90a4ae;
+$font-title: 'Maven Pro', sans-serif;
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Meera Inimai', sans-serif;
 }
 .p-relative{
     position: relative;
@@ -30,6 +32,22 @@ $text-secondary: #90a4ae;
 .jc-sb{
     justify-content: space-between;
 }
+.jc-end{
+    justify-content: end;
+}
 .text-center{
     text-align: center;
+}
+.subtitle{
+    font-size: 0.8rem;
+    color: $text-secondary;
+    margin: 5px 0px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+.close{
+    font-family: $font-title;
 }
