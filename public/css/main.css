@@ -1,8 +1,25 @@
+.subtitle, .modal > p, .login-form > p {
+  font-size: 0.8rem;
+  color: #90a4ae;
+  margin: 5px 0px;
+}
+
+.show, .modal-center.show {
+  opacity: 1;
+  pointer-events: initial;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Meera Inimai", sans-serif;
+}
+
+.container {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0px auto;
 }
 
 .p-relative {
@@ -22,7 +39,7 @@
   align-content: center;
 }
 
-.jc-sb {
+.jc-between {
   justify-content: space-between;
 }
 
@@ -30,14 +47,24 @@
   justify-content: end;
 }
 
-.text-center {
-  text-align: center;
+.jc-around {
+  justify-content: space-around;
 }
 
-.subtitle, .modal > p, .login-form > p {
-  font-size: 0.8rem;
-  color: #90a4ae;
-  margin: 5px 0px;
+.jc-center {
+  justify-content: center;
+}
+
+.jc-evenly {
+  justify-content: space-between;
+}
+
+.jc-start {
+  justify-content: start;
+}
+
+.text-center {
+  text-align: center;
 }
 
 h1,
@@ -49,9 +76,93 @@ h5,
   font-family: "Maven Pro", sans-serif;
 }
 
+.subtitle, .modal > p, .login-form > p {
+  font-size: 0.8rem;
+  color: #90a4ae;
+  margin: 5px 0px;
+}
+
+.show, .modal-center.show, header .menu .submenu.show, header .menu .menu--user:hover > ul.submenu, header .menu--user:hover > ul {
+  opacity: 1;
+  pointer-events: initial;
+}
+
 header {
-  background: #000;
-  color: #fff;
+  background: #cfd8dc;
+}
+
+header .logo {
+  width: 100px;
+  transition: all 400ms;
+}
+
+header .logo img {
+  width: 100%;
+}
+
+header .logo:hover {
+  transform: scale(1.05);
+}
+
+header .menu a {
+  display: block;
+  padding: 5px 15px;
+  transition: all 400ms;
+}
+
+header .menu a:hover {
+  color: #01579b;
+  font-weight: bold;
+}
+
+header .menu__icon--hamburguer {
+  display: block;
+  background-image: url("../images/menu.png") !important;
+  width: 32px;
+  height: 32px;
+  filter: invert(1);
+  cursor: pointer;
+  display: none;
+}
+
+header .menu__icon--hamburguer.close {
+  background-image: url("../images/close.png") !important;
+}
+
+header .menu--user {
+  color: #0288d1;
+  cursor: pointer;
+  padding-left: 15px;
+}
+
+header .menu--user img {
+  border-radius: 50%;
+  margin-left: 5px;
+  order: 2;
+}
+
+header .menu--user span:hover,
+header .menu--user img:hover ~ span {
+  color: #01579b;
+  font-weight: bold;
+}
+
+header .menu .submenu {
+  top: 50px;
+  left: 0;
+  width: 130px;
+  background-color: #cfd8dc;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 400ms;
+}
+
+header .menu .submenu a {
+  padding: 15px;
+}
+
+header .menu .submenu li:first-child {
+  padding-top: 10px;
 }
 
 a {
@@ -63,25 +174,14 @@ a:hover {
   color: #0471ac;
 }
 
-input[type=submit] {
-  padding: 20px 25px;
-  cursor: pointer;
-  border: 1px solid #263238;
-  border-radius: 5px;
-  background-color: #263238;
-  color: #fff;
-  transition: all 400ms;
-}
-
-input[type=submit]:hover {
-  background-color: transparent;
-  border: 1px solid #0288d1;
-  color: #0288d1;
+li {
+  list-style: none;
 }
 
 input[type=text],
 input[type=password],
-input[type=email] {
+input[type=email],
+input[type=search] {
   width: 100%;
   height: 50px;
   padding-left: 30px;
@@ -102,7 +202,9 @@ input[type=text]:valid ~ span,
 input[type=password]:focus ~ span,
 input[type=password]:valid ~ span,
 input[type=email]:focus ~ span,
-input[type=email]:valid ~ span {
+input[type=email]:valid ~ span,
+input[type=search]:focus ~ span,
+input[type=search]:valid ~ span {
   color: #0288d1;
 }
 
@@ -111,11 +213,47 @@ input[type=text]:valid ~ label,
 input[type=password]:focus ~ label,
 input[type=password]:valid ~ label,
 input[type=email]:focus ~ label,
-input[type=email]:valid ~ label {
+input[type=email]:valid ~ label,
+input[type=search]:focus ~ label,
+input[type=search]:valid ~ label {
   color: #0288d1;
   top: -15px;
   left: -30px;
   font-size: 0.8rem;
+}
+
+input[type=submit],
+button[type=submit] {
+  padding: 20px 25px;
+  cursor: pointer;
+  border: 1px solid #263238;
+  border-radius: 5px;
+  background-color: #263238;
+  color: #fff;
+  transition: all 400ms;
+}
+
+input[type=submit]:hover,
+button[type=submit]:hover {
+  background-color: transparent;
+  border: 1px solid #0288d1;
+  color: #0288d1;
+}
+
+input[type=search] {
+  width: 310px;
+  border-radius: 5px 0px 0px 5px;
+}
+
+button[type=submit] {
+  height: 50px;
+  width: 50px;
+  outline: none;
+  border-radius: 0px 5px 5px 0px;
+}
+
+button[type=submit]:hover {
+  border: 1px solid #90a4ae;
 }
 
 .jumbo {
@@ -186,13 +324,11 @@ footer {
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  display: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 400ms;
   filter: blur(40);
 }
-.modal-center.show {
-  display: block;
-}
-
 .modal {
   background: #fff;
   padding: 20px 40px;
@@ -213,20 +349,69 @@ footer {
   cursor: pointer;
 }
 .modal .close:hover {
-  color: #0471ac;
+  color: #01579b;
 }
 .modal .input-group {
   margin: 25px 0px 10px 0px;
-}
-
-.home {
-  margin: 0px;
 }
 
 .profile {
   margin: 0px;
 }
 
+@media (max-width: 992px) {
+  header .menu {
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - 100px);
+    position: absolute;
+    top: 100px;
+    right: 0px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.43);
+    overflow-x: hidden;
+  }
+  header .menu__icon--hamburguer {
+    display: block;
+    background-image: url("images/menu.png");
+  }
+  header .menu__icon--hamburguer.close {
+    background-image: url("images/close.png");
+  }
+  header .menu .submenu {
+    width: 100%;
+    top: 100px;
+  }
+  header .menu .submenu li {
+    padding: 5px 15px;
+  }
+  header .menu ul {
+    display: table;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #cfd8dc;
+    text-align: center;
+    right: -100%;
+    transition: all 500ms;
+  }
+  header .menu ul.showMenu {
+    right: 0%;
+  }
+  header .menu ul li.d-flex {
+    justify-content: center;
+    padding: 25px 15px;
+    padding-right: 27px;
+  }
+  header .menu ul li {
+    transition: all 400ms;
+  }
+  header .menu ul li:hover {
+    background: #90a4ae;
+  }
+  header .menu ul a {
+    padding: calc(100vh / 20) 30px;
+  }
+}
 @media (max-width: 768px) {
   .modal-center {
     width: 75%;
@@ -234,15 +419,39 @@ footer {
   .modal-center .modal {
     width: auto;
   }
+
+  body {
+    background: red;
+  }
 }
 @media (max-width: 576px) {
+  body {
+    background: green;
+  }
+
+  input[type=search] {
+    width: 200px;
+  }
+
+  input[type=submit] {
+    padding: 16px;
+  }
+
   h2 {
     font-size: 1.2rem;
     margin: 10px 0px;
   }
 
-  input[type=submit] {
-    padding: 16px;
+  header .d-flex {
+    flex-wrap: wrap;
+  }
+  header .search-form {
+    order: 4;
+    width: 100%;
+    justify-content: center;
+  }
+  header .menu {
+    top: 163px;
   }
 
   .login-form {

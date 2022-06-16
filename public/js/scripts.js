@@ -32,29 +32,46 @@ function showModal(step, last = false) {
 	}
 	last ? divModal.classList.remove("show") : "";
 }
+function showMenu(){
+	const menu = document.querySelector('nav.menu ul')
+	const icon = document.querySelector('.menu__icon--hamburguer')
+	
+	icon.classList.toggle('close')
+	menu.classList.toggle('showMenu')
+}
 window.addEventListener("load", () => {
-	const loginForm = document.querySelector(".login-form");
-
-	document.getElementById("reset-password").onclick = function () {
-		showModal(1);
-		loginForm.classList.add("hide");
-	};
-	document.getElementById("step-1").addEventListener("submit", () => {
-		showModal(2);
-	});
-	document.getElementById("step-2").addEventListener("submit", () => {
-		showModal(3);
-	});
-	document.getElementById("step-3").addEventListener("submit", () => {
-		showModal(3, true);
-		loginForm.classList.remove("hide");
-	});
-
-	const btnClose = document.querySelectorAll(".close");
-	btnClose.forEach((element) => {
-		element.addEventListener("click", () => {
-			document.querySelector(".show").classList.remove("show");
+	if (window.location.href.indexOf("iniciar-sesion") > -1) {
+		const loginForm = document.querySelector(".login-form");
+		//MOSTAR MODAL
+		document.getElementById("reset-password").onclick = function () {
+			showModal(1);
+			loginForm.classList.add("hide");
+		};
+		document.getElementById("step-1").addEventListener("submit", () => {
+			showModal(2);
+		});
+		document.getElementById("step-2").addEventListener("submit", () => {
+			showModal(3);
+		});
+		document.getElementById("step-3").addEventListener("submit", () => {
+			showModal(3, true);
 			loginForm.classList.remove("hide");
 		});
-	});
+
+		//BOTON CERRAR MODAL
+		const btnClose = document.querySelectorAll(".close");
+		btnClose.forEach((element) => {
+			element.addEventListener("click", () => {
+				document.querySelector(".show").classList.remove("show");
+				loginForm.classList.remove("hide");
+			});
+		});
+	}
+	
+		//MOSTRAR SUBMENU
+		document.getElementById('showSubmenu').addEventListener('click', ()=>{
+			const submenu = document.getElementById('submenu')
+			submenu.classList.toggle('show')
+		})
+
 });

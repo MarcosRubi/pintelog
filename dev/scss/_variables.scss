@@ -1,0 +1,17 @@
+$link: #0288d1;
+$link-hover: #01579b;
+$btn-primary: #263238;
+$text-color: #fff;
+$text-secondary: #90a4ae;
+$bg-color : #cfd8dc;
+$font-title: 'Maven Pro', sans-serif;
+
+.subtitle{
+    font-size: 0.8rem;
+    color: $text-secondary;
+    margin: 5px 0px;
+}
+.show {
+	opacity: 1;
+	pointer-events: initial;
+}
