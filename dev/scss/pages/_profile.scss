@@ -1,3 +1,32 @@
-.profile{
-    margin: 0px;
+
+h2 {
+	padding-bottom: 30px;
+}
+.profile {
+	padding: 30px;
+
+	&__img {
+		.profileImg {
+			background-image: url(https://via.placeholder.com/250x150);
+			background-position: center center;
+			width: 150px;
+			height: 150px;
+		}
+	}
+
+	&__info {
+		li {
+			padding: 10px;
+		}
+
+		span {
+			padding-right: 5px;
+			font-weight: bold;
+		}
+	}
+
+	h2 {
+		padding-left: 12px;
+		padding-bottom: 10px;
+	}
 }

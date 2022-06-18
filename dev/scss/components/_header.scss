@@ -40,7 +40,6 @@ header{
 			cursor: pointer;
 			padding-left: 15px;
 			img{
-				border-radius: 50%;
 				margin-left: 5px;
 				order: 2;
 			}
@@ -61,6 +60,7 @@ header{
 			opacity: 0;
 			pointer-events: none;
 			transition: all 400ms;
+			z-index: 100;
 			a{
 				padding: 15px;
 			}

@@ -1,7 +1,24 @@
 extends ../template/template
 append config 
-    - var currentPage = 'Perfil'
+	- var currentPage = 'Perfil'
 
 block content
-    main
-        h1 Main profile
+	section(class="profile container")
+		div(class="d-flex align-center jc-center")
+			div(class="profile__img")
+				div(class="profileImg bordered")
+			div(class="profile__info")
+				h2 DanielR
+				ul(class="d-flex jc-between")
+					li(class="d-flex")
+						span 40
+						p Publicaciones
+					li(class="d-flex")
+						span 128
+						p Me Gusta
+	hr
+	block gallery 
+		section(class="gallery container")
+			h2(class="text-center") Publicaciones de DanielR
+			include ../includes/gallery
+					

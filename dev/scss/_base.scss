@@ -4,56 +4,124 @@
 // TIPOGRAFIA
 
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Meera Inimai', sans-serif;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Meera Inimai', sans-serif;
 }
-.container{
+
+.container {
 	width: 95%;
 	max-width: 1200px;
 	margin: 0px auto;
 }
-.p-relative{
-    position: relative;
+
+.p-relative {
+	position: relative;
 }
-.p-absolute{
-    position: absolute;
+
+.p-absolute {
+	position: absolute;
 }
-.d-flex{
-    display: flex;
+
+.d-flex {
+	display: flex;
 }
-.align-center{
-    align-items: center;
-    align-content: center;
+
+.align-center {
+	align-items: center;
+	align-content: center;
 }
-.jc-between{
-    justify-content: space-between;
-}
-.jc-end{
-    justify-content: end;
-}
-.jc-around{
-	justify-content: space-around;
-}
-.jc-center{
-	justify-content: center;
-}
-.jc-evenly{
+
+.jc-between {
 	justify-content: space-between;
 }
-.jc-start{
+
+.jc-end {
+	justify-content: end;
+}
+
+.jc-around {
+	justify-content: space-around;
+}
+
+.jc-center {
+	justify-content: center;
+}
+
+.jc-evenly {
+	justify-content: space-between;
+}
+
+.jc-start {
 	justify-content: start;
 }
-.text-center{
-    text-align: center;
+
+.text-center {
+	text-align: center;
 }
+
 h1,
 h2,
 h3,
 h4,
 h5,
-.close{
-    font-family: $font-title;
+.close {
+	font-family: $font-title;
+}
+
+.bordered {
+	border-radius: 50%;
+}
+
+
+// ESTILOS DE LA GALERIA
+.gallery {
+	padding: 30px 0px;
+
+	&__container {
+		columns: 3 320px;
+		column-gap: 0.5em;
+	}
+
+	&__img {
+		max-width: 100%;
+		border-radius: 5px;
+		cursor: pointer;
+		transition: all 400ms;
+	}
+
+	&__item {
+		position: relative;
+		padding-bottom: 0.5em;
+
+		input[type="submit"] {
+			padding: 0;
+			border-radius: 5px;
+		}
+		&:hover .gallery__content,
+		&:hover .gallery__img {
+			pointer-events: initial;
+			transform: scale(1.02);
+			opacity: 1;
+		}
+	}
+
+	&__content {
+		position: absolute;
+		bottom: 0.45rem;
+		background: rgba(207, 216, 220, 0.8);
+		border-radius: 0px 0px 5px 5px;
+		width: 100%;
+		z-index: 10;
+		padding: 10px;
+		opacity: 0;
+		pointer-events: none;
+		transition: all 400ms;
+	}
+
+	&__description {
+		width: 85%;
+	}
 }

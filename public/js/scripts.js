@@ -32,15 +32,78 @@ function showModal(step, last = false) {
 	}
 	last ? divModal.classList.remove("show") : "";
 }
-function showMenu(){
-	const menu = document.querySelector('nav.menu ul')
-	const icon = document.querySelector('.menu__icon--hamburguer')
-	
-	icon.classList.toggle('close')
-	menu.classList.toggle('showMenu')
+function showMenu() {
+	const menu = document.querySelector("nav.menu ul");
+	const icon = document.querySelector(".menu__icon--hamburguer");
+
+	icon.classList.toggle("close");
+	menu.classList.toggle("showMenu");
+}
+const gallery = [
+	{
+		routeImg : 'images/profile/1.jpg',
+		description: 'Publicado por'
+	},
+	{
+		routeImg : 'images/profile/2.jpg',
+		description: 'Publicado por'
+	},
+	{
+		routeImg : 'images/profile/3.jpg',
+		description: 'Publicado por'
+	},
+	{
+		routeImg : 'images/profile/4.jpg',
+		description: 'Publicado por'
+	},
+	{
+		routeImg : 'images/profile/5.jpg',
+		description: 'Publicado por'
+	},
+	{
+		routeImg : 'images/profile/6.jpg',
+		description: 'Publicado por'
+	},
+	{
+		routeImg : 'images/profile/7.jpg',
+		description: 'Publicado por'
+	},
+	{
+		routeImg : 'images/profile/8.jpg',
+		description: 'Publicado por'
+	},
+	{
+		routeImg : 'images/profile/9.jpg',
+		description: 'Publicado por'
+	},
+	{
+		routeImg : 'images/profile/10.jpg',
+		description: 'Publicado por'
+	}
+
+]
+function getGallery(){
+	let divGallery = document.getElementById('gallery')
+	let content = '' 
+	gallery.forEach(element => {
+		let template = `
+		<div class="gallery__item">
+			<img class="gallery__img" src="${element.routeImg}" alt="Foto publicada por DanielR" />
+			<div class="gallery__content d-flex jc-between align-center p-absolute">
+			<p class="gallery__description"> ${element.description} <a href="profile.html"> DanielR</a></p>
+			
+				<button type="submit" onclick="window.open('${element.routeImg}')">
+					<i class="fa fa-download"></i>
+				</button>
+			</div>
+		</div>
+		`
+		content += template
+	});
+	divGallery.innerHTML += content 
 }
 window.addEventListener("load", () => {
-	if (window.location.href.indexOf("iniciar-sesion") > -1) {
+	if (window.location.href.indexOf("iniciar-sesion") != -1) {
 		const loginForm = document.querySelector(".login-form");
 		//MOSTAR MODAL
 		document.getElementById("reset-password").onclick = function () {
@@ -67,11 +130,12 @@ window.addEventListener("load", () => {
 			});
 		});
 	}
-	
+	if (window.location.href.indexOf("iniciar-sesion") == -1 && window.location.href.indexOf("registro") == -1) {
 		//MOSTRAR SUBMENU
-		document.getElementById('showSubmenu').addEventListener('click', ()=>{
-			const submenu = document.getElementById('submenu')
-			submenu.classList.toggle('show')
-		})
-
+		document.getElementById("showSubmenu").addEventListener("click", () => {
+			const submenu = document.getElementById("submenu");
+			submenu.classList.toggle("show");
+		});
+		getGallery()
+	}
 });

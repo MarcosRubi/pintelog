@@ -76,6 +76,52 @@ h5,
   font-family: "Maven Pro", sans-serif;
 }
 
+.bordered {
+  border-radius: 50%;
+}
+
+.gallery {
+  padding: 30px 0px;
+}
+.gallery__container {
+  columns: 3 320px;
+  column-gap: 0.5em;
+}
+.gallery__img {
+  max-width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 400ms;
+}
+.gallery__item {
+  position: relative;
+  padding-bottom: 0.5em;
+}
+.gallery__item input[type=submit] {
+  padding: 0;
+  border-radius: 5px;
+}
+.gallery__item:hover .gallery__content, .gallery__item:hover .gallery__img {
+  pointer-events: initial;
+  transform: scale(1.02);
+  opacity: 1;
+}
+.gallery__content {
+  position: absolute;
+  bottom: 0.45rem;
+  background: rgba(207, 216, 220, 0.8);
+  border-radius: 0px 0px 5px 5px;
+  width: 100%;
+  z-index: 10;
+  padding: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 400ms;
+}
+.gallery__description {
+  width: 85%;
+}
+
 .subtitle, .modal > p, .login-form > p {
   font-size: 0.8rem;
   color: #90a4ae;
@@ -136,7 +182,6 @@ header .menu--user {
 }
 
 header .menu--user img {
-  border-radius: 50%;
   margin-left: 5px;
   order: 2;
 }
@@ -155,6 +200,7 @@ header .menu .submenu {
   opacity: 0;
   pointer-events: none;
   transition: all 400ms;
+  z-index: 100;
 }
 
 header .menu .submenu a {
@@ -250,19 +296,43 @@ button[type=submit] {
   width: 50px;
   outline: none;
   border-radius: 0px 5px 5px 0px;
+  padding: 0px;
 }
 
 button[type=submit]:hover {
   border: 1px solid #90a4ae;
 }
 
+.gallery__item button[type=submit] {
+  padding: 0;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+}
+
+.gallery__item button[type=submit]:hover {
+  background: #263238;
+}
+
 .jumbo {
   margin: 0px;
 }
 
+.subtitle, .modal > p, .login-form > p {
+  font-size: 0.8rem;
+  color: #90a4ae;
+  margin: 5px 0px;
+}
+
+.show, .modal-center.show {
+  opacity: 1;
+  pointer-events: initial;
+}
+
 footer {
-  background: #000;
-  color: #fff;
+  padding: 20px;
+  text-align: center;
+  background-color: #cfd8dc;
 }
 
 .div-center {
@@ -355,8 +425,29 @@ footer {
   margin: 25px 0px 10px 0px;
 }
 
+h2 {
+  padding-bottom: 30px;
+}
+
 .profile {
-  margin: 0px;
+  padding: 30px;
+}
+.profile__img .profileImg {
+  background-image: url(https://via.placeholder.com/250x150);
+  background-position: center center;
+  width: 150px;
+  height: 150px;
+}
+.profile__info li {
+  padding: 10px;
+}
+.profile__info span {
+  padding-right: 5px;
+  font-weight: bold;
+}
+.profile h2 {
+  padding-left: 12px;
+  padding-bottom: 10px;
 }
 
 @media (max-width: 992px) {
@@ -442,18 +533,6 @@ footer {
     margin: 10px 0px;
   }
 
-  header .d-flex {
-    flex-wrap: wrap;
-  }
-  header .search-form {
-    order: 4;
-    width: 100%;
-    justify-content: center;
-  }
-  header .menu {
-    top: 163px;
-  }
-
   .login-form {
     padding: 20px;
   }
@@ -467,6 +546,25 @@ footer {
 
   .modal-center {
     width: 95%;
+  }
+
+  header .d-flex {
+    flex-wrap: wrap;
+  }
+  header .search-form {
+    order: 4;
+    width: 100%;
+    justify-content: center;
+  }
+  header .menu {
+    top: 163px;
+  }
+
+  .profile__info ul {
+    flex-direction: column;
+  }
+  .profile__info h2 {
+    font-size: 1.8rem;
   }
 }
 

@@ -1,5 +1,6 @@
 extends ../template/template
 
 block content
-    main 
-        h1 Main content
+	block gallery 
+		section(class="gallery container")
+			include ../includes/gallery

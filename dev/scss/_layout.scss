@@ -99,6 +99,19 @@
 		font-size: 1.2rem;
 		margin: 10px 0px;
 	}
+	.login-form {
+		padding: 20px;
+	}
+	.modal {
+		padding: 20px;
+
+		&>p {
+			width: 95%;
+		}
+	}
+	.modal-center {
+		width: 95%;
+	}
 	header {
 		.d-flex {
 			flex-wrap: wrap;
@@ -112,17 +125,12 @@
 			top: 163px;
 		}
 	}
-	.login-form {
-		padding: 20px;
-	}
-	.modal {
-		padding: 20px;
-
-		&>p {
-			width: 95%;
+	.profile{
+		&__info{
+			ul{
+				flex-direction: column;
+			}
+			h2{font-size: 1.8rem;}
 		}
-	}
-	.modal-center {
-		width: 95%;
 	}
 }
