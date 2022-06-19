@@ -22,13 +22,13 @@ block content
                 input(type="password", name="txtPassword" id="txtPassword" required="")
                 span(class="p-absolute"): i(class="fa fa-key")
                 label(for="txtPassword" class="p-absolute") Contraseña
-                i(class=" p-absolute fa fa-eye" id="toggle-password")
+                i(class=" p-absolute fa fa-eye" id="toggle-password" onclick="showPassword('old')")
             div(class="d-flex align-center jc-between")
                 div(class="d-flex align-center") 
                     input(type="checkbox", name="chkRemember" id="chkRemember")
                     label(for="chkRemember")  Recordarme
                 div
-                    input(type="submit", value="Registrarme")
+                    input(type="submit", value="Registrarme" class="btn btn-primary")
             div(class="text-center")
                 p Ya tienes una cuenta? 
                     a(href="iniciar-sesion.html") Iniciar sesión 

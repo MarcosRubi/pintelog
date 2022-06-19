@@ -4,7 +4,7 @@
   margin: 5px 0px;
 }
 
-.show, .modal-center.show {
+.show, #divPassword.show, .modal-center.show {
   opacity: 1;
   pointer-events: initial;
 }
@@ -14,6 +14,10 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Meera Inimai", sans-serif;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 .container {
@@ -56,11 +60,15 @@
 }
 
 .jc-evenly {
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .jc-start {
   justify-content: start;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .text-center {
@@ -97,10 +105,6 @@ h5,
   position: relative;
   padding-bottom: 0.5em;
 }
-.gallery__item input[type=submit] {
-  padding: 0;
-  border-radius: 5px;
-}
 .gallery__item:hover .gallery__content, .gallery__item:hover .gallery__img {
   pointer-events: initial;
   transform: scale(1.02);
@@ -128,7 +132,7 @@ h5,
   margin: 5px 0px;
 }
 
-.show, .modal-center.show, header .menu .submenu.show, header .menu .menu--user:hover > ul.submenu, header .menu--user:hover > ul {
+.show, #divPassword.show, .modal-center.show, header .menu .submenu.show {
   opacity: 1;
   pointer-events: initial;
 }
@@ -211,6 +215,16 @@ header .menu .submenu li:first-child {
   padding-top: 10px;
 }
 
+header input[type=search],
+header .input-group label {
+  padding-left: 16px;
+}
+
+header input[type=search]:focus ~ label,
+header input[type=search]:valid ~ label {
+  left: -15px;
+}
+
 a {
   color: #0288d1;
   text-decoration: none;
@@ -231,7 +245,6 @@ input[type=search] {
   width: 100%;
   height: 50px;
   padding-left: 30px;
-  border-radius: 5px;
   border: 1px solid #90a4ae;
   outline: none;
 }
@@ -268,50 +281,93 @@ input[type=search]:valid ~ label {
   font-size: 0.8rem;
 }
 
-input[type=submit],
-button[type=submit] {
-  padding: 20px 25px;
-  cursor: pointer;
-  border: 1px solid #263238;
-  border-radius: 5px;
-  background-color: #263238;
-  color: #fff;
-  transition: all 400ms;
-}
-
-input[type=submit]:hover,
-button[type=submit]:hover {
-  background-color: transparent;
-  border: 1px solid #0288d1;
-  color: #0288d1;
-}
-
 input[type=search] {
   width: 310px;
   border-radius: 5px 0px 0px 5px;
 }
 
-button[type=submit] {
+input[type=file] {
+  display: none;
+}
+
+.field-group {
+  margin-top: 10px;
+}
+
+.field-group label {
+  padding: 10px 15px;
+}
+
+.field-group label i {
+  color: #fff;
+}
+
+.field-group label span {
+  color: #fff;
+  padding-left: 5px;
+}
+
+.gallery__item button {
+  padding: 0;
+  width: 32px;
+  height: 32px;
+}
+
+.gallery__item button.btn-primary {
+  margin-left: 5px;
+}
+
+.gallery__item button.favorite {
+  color: #0471ac;
+  border: 1px solid #0471ac;
+}
+
+.btn {
+  padding: 20px 25px;
+  color: #fff;
+  display: block;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 400ms;
+  border-radius: 5px;
+  transition: all 400ms;
+}
+
+.btn-primary {
+  background: #263238;
+  border: none;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #0288d1;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid #263238;
+  color: #000;
+}
+
+.btn-secondary:hover {
+  color: #0288d1;
+  border: 1px solid #0288d1;
+}
+
+.btn-search {
   height: 50px;
   width: 50px;
   outline: none;
   border-radius: 0px 5px 5px 0px;
   padding: 0px;
+  background-color: #0288d1;
+  color: #263238;
+  border: none;
 }
 
-button[type=submit]:hover {
-  border: 1px solid #90a4ae;
-}
-
-.gallery__item button[type=submit] {
-  padding: 0;
-  border-radius: 5px;
-  width: 40px;
-  height: 40px;
-}
-
-.gallery__item button[type=submit]:hover {
-  background: #263238;
+.btn-search:hover {
+  background-color: #0471ac;
+  color: #fff;
 }
 
 .jumbo {
@@ -324,7 +380,7 @@ button[type=submit]:hover {
   margin: 5px 0px;
 }
 
-.show, .modal-center.show {
+.show, #divPassword.show, .modal-center.show {
   opacity: 1;
   pointer-events: initial;
 }
@@ -446,8 +502,44 @@ h2 {
   font-weight: bold;
 }
 .profile h2 {
-  padding-left: 12px;
+  padding: 0px 10px 10px 10px;
   padding-bottom: 10px;
+}
+.profile a.btn {
+  padding: 10px 15px;
+  margin-left: 10px;
+}
+
+#edit-profile input[type=text],
+#edit-profile input[type=password] {
+  max-width: 250px;
+}
+
+.profile__info.edit {
+  flex-basis: 50%;
+  max-width: 475px;
+}
+
+.profile__img.edit {
+  flex-basis: 15%;
+  padding-right: 20px;
+}
+
+#divPassword {
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+}
+#divPassword.show {
+  height: auto;
+}
+
+.btn-group {
+  margin-top: 10px;
+}
+
+.btn-group .btn:first-child {
+  margin-right: 5px;
 }
 
 @media (max-width: 992px) {
@@ -458,12 +550,16 @@ h2 {
     position: absolute;
     top: 100px;
     right: 0px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.43);
-    overflow-x: hidden;
+    z-index: 100;
+    pointer-events: none;
+  }
+  header .menu.show, header .menu#divPassword.show {
+    pointer-events: initial;
   }
   header .menu__icon--hamburguer {
     display: block;
     background-image: url("images/menu.png");
+    background-size: cover;
   }
   header .menu__icon--hamburguer.close {
     background-image: url("images/close.png");
@@ -493,6 +589,11 @@ h2 {
     padding: 25px 15px;
     padding-right: 27px;
   }
+  header .menu ul li.d-flex::after {
+    content: "^";
+    transform: rotate(180deg) translate(-72px, 7px);
+    font-size: 1.4rem;
+  }
   header .menu ul li {
     transition: all 400ms;
   }
@@ -500,7 +601,19 @@ h2 {
     background: #90a4ae;
   }
   header .menu ul a {
-    padding: calc(100vh / 20) 30px;
+    padding: 25px;
+  }
+
+  .profile .input-group {
+    margin: 25px 0px 0px 0px;
+  }
+  .profile__info.edit a {
+    display: block;
+    margin: 25px 0px 10px 0px;
+  }
+
+  .gallery__content {
+    opacity: 1;
   }
 }
 @media (max-width: 768px) {
@@ -510,22 +623,10 @@ h2 {
   .modal-center .modal {
     width: auto;
   }
-
-  body {
-    background: red;
-  }
 }
 @media (max-width: 576px) {
-  body {
-    background: green;
-  }
-
   input[type=search] {
     width: 200px;
-  }
-
-  input[type=submit] {
-    padding: 16px;
   }
 
   h2 {
@@ -565,6 +666,10 @@ h2 {
   }
   .profile__info h2 {
     font-size: 1.8rem;
+  }
+
+  .flex-column-sm {
+    flex-direction: column;
   }
 }
 

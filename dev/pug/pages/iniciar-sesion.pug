@@ -24,7 +24,7 @@ block content
                     input(type="checkbox", name="chkRemember" id="chkRemember")
                     label(for="chkRemember")  Recordarme
                 div
-                    input(type="submit", value="Iniciar sesión")
+                    input(type="submit", value="Iniciar sesión" class="btn btn-primary")
             a(href="#" id="reset-password") Olvide mi contraseña
             div(class="text-center")
                 p No tienes una cuenta? 
@@ -40,7 +40,7 @@ block content
                     input(type="email", name="txtEmailVerify" id="txtEmailVerify" required="")
                     span(class="p-absolute"): i(class="fa fa-envelope")
                     label(for="txtEmail" class="p-absolute") Ingresar email 
-                input(type="submit", value="Siguiente")
+                input(type="submit", value="Siguiente" class="btn btn-primary")
     div(class="p-absolute modal-center" id="modal-step-2")
         div(class="modal")
             div(class="d-flex jc-end")
@@ -52,7 +52,7 @@ block content
                     input(type="text", name="txtCodeVerify" id="txtCodeVerify" required="")
                     span(class="p-absolute"): i(class="fa fa-envelope")
                     label(for="txtCode" class="p-absolute") Ingresar código 
-                input(type="submit", value="Verificar")
+                input(type="submit", value="Verificar" class="btn btn-primary")
                 div(class="text-center")
                     p No has recibido un email? 
                         a(href="#") Reenviar código
@@ -68,5 +68,5 @@ block content
                     span(class="p-absolute"): i(class="fa fa-key")
                     label(for="txtNewPassword" class="p-absolute") Nueva contraseña
                     i(class=" p-absolute fa fa-eye" id="toggle-password-modal" onclick="showPassword()")
-                input(type="submit", value="Actualizar")
+                input(type="submit", value="Actualizar" class="btn btn-primary")
 block footer

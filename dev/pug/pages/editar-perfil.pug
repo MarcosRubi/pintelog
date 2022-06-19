@@ -1,0 +1,45 @@
+extends ../template/template
+append config 
+	- var currentPage = 'Editar Perfil'
+
+block content
+	section(class="profile container")
+		form(action="#", method="post" onsubmit="return false;" id="edit-profile")
+			div(class="d-flex align-center jc-center flex-column-sm")
+				div(class="profile__img edit")
+					div(class="profileImg bordered p-relative")
+					div(class="field-group p-relative")
+						input(type="file", name="file" id="file" accept="image/*")
+						label(for="file" class="p-abolute btn btn-primary file-label text-center")
+							span Cambiar foto&hellip;
+				div(class="profile__info edit")
+					div(class="input-group p-relative")
+						input(type="text", name="txtUser" id="txtUser")
+						span(class="p-absolute"): i(class="fa fa-user")
+						label(for="txtUser" class="p-absolute") Usuario 
+					div(class="input-group p-relative")
+						input(type="email", name="txtEmail" id="txtEmail")
+						span(class="p-absolute"): i(class="fa fa-envelope")
+						label(for="txtEmail" class="p-absolute") Email
+					a(href="#" onclick="javascript:EditPassword();") Cambiar contraseña
+					div(class="d-flex jc-between align-center flex-wrap" id="divPassword")
+						div(class="input-group p-relative")
+							input(type="password", name="txtPassword" id="txtPassword" required="")
+							span(class="p-absolute"): i(class="fa fa-key")
+							label(for="txtPassword" class="p-absolute") Contraseña Actual
+							i(class=" p-absolute fa fa-eye" id="toggle-password" onclick="showPassword('old')")
+						div(class="input-group p-relative")
+							input(type="password", name="txtPassword" id="txtNewPassword" required="")
+							span(class="p-absolute"): i(class="fa fa-key")
+							label(for="txtNewPassword" class="p-absolute") Nueva Contraseña
+							i(class=" p-absolute fa fa-eye" id="toggle-password-modal" onclick="showPassword('')")
+					div(class="d-flex align-center btn-group")
+						input(type="reset", value="Cancelar" class="btn btn-secondary")
+						input(type="submit", value="Actualizar" class="btn btn-primary")
+
+	hr
+	block gallery 
+		section(class="gallery container")
+			h2(class="text-center") Publicaciones de DanielR
+			include ../includes/gallery
+					

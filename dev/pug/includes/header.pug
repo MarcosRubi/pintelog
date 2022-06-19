@@ -7,10 +7,9 @@ header
 				div(class="d-flex jc-center")
 					div(class="input-group p-relative")
 						input(type="search" name="txtSearch" id="txtSearch" required="")
-						span(class="p-absolute"): i(class="fa fa-search")
 						label(for="txtSearch" class="p-absolute") Buscar
 					div(class="input-group")
-						button(type="submit" class="d-flex jc-center align-center"): i(class=" fa fa-search")
+						button(type="submit" class="d-flex jc-center align-center btn btn-search"): i(class=" fa fa-search")
 		div(class="menu__icon--hamburguer"  onclick="javascript:showMenu();")
 		nav(class="menu")
 			ul(class="d-flex align-center")
@@ -24,6 +23,7 @@ header
 					img(src="https://via.placeholder.com/50x50" alt="Foto de perfil" class="bordered")
 					span Usuario
 					ul(class="p-absolute submenu" id="submenu") 
-						li: a(href="profile.html") Editar Perfil 
+						li: a(href="perfil.html") Mi Perfil 
+						li: a(href="editar-perfil.html") Editar Perfil 
 						li: a(href="#") Cerrar Sesión
 				

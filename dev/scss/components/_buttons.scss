@@ -17,6 +17,7 @@ li {
 	list-style: none;
 }
 
+
 input[type="text"],
 input[type="password"],
 input[type="email"],
@@ -24,7 +25,6 @@ input[type="search"] {
 	width: 100%;
 	height: 50px;
 	padding-left: 30px;
-	border-radius: 5px;
 	border: 1px solid $text-secondary;
 	outline: none;
 }
@@ -61,46 +61,92 @@ input[type="search"]:valid~label {
 	font-size: 0.8rem;
 }
 
-input[type="submit"],
-button[type="submit"] {
-	padding: 20px 25px;
-	cursor: pointer;
-	border: 1px solid $btn-primary;
-	border-radius: 5px;
-	background-color: $btn-primary;
-	color: $text-color;
-	transition: all 400ms;
-
-	&:hover {
-		background-color: transparent;
-		border: 1px solid $link;
-		color: $link;
-	}
-}
-
 input[type="search"] {
 	width: 310px;
 	border-radius: 5px 0px 0px 5px;
 }
 
-button[type="submit"] {
+
+
+input[type="file"] {
+	display: none;
+}
+
+.field-group {
+	margin-top: 10px;
+}
+
+.field-group label {
+	padding: 10px 15px;
+
+	i {
+		color: $text-color;
+	}
+
+	span {
+		color: $text-color;
+		padding-left: 5px;
+	}
+}
+
+
+.gallery__item button{
+	padding: 0;
+	width: 32px;
+	height: 32px;
+	&.btn-primary{
+		margin-left: 5px;
+	}
+	&.favorite{
+		color: $link-hover;
+		border: 1px solid $link-hover;
+	}
+}
+
+.btn {
+	padding: 20px 25px;
+	color: $text-color;
+	display: block;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 400ms;
+	border-radius: 5px;
+	transition: all 400ms;
+}
+
+.btn-primary {
+	background: $btn-primary;
+	border: none;
+
+	&:hover {
+		color: $text-color;
+		background-color: $link;
+	}
+}
+
+.btn-secondary {
+	background: transparent;
+	border: 1px solid $btn-primary;
+	color: #000;
+
+	&:hover {
+		color: $link;
+		border: 1px solid $link;
+	}
+}
+
+.btn-search {
 	height: 50px;
 	width: 50px;
 	outline: none;
 	border-radius: 0px 5px 5px 0px;
 	padding: 0px;
+	background-color: $link;
+	color: $btn-primary;
+	border: none;
 
 	&:hover {
-		border: 1px solid $text-secondary;
-	}
-}
-
-.gallery__item button[type="submit"] {
-	padding: 0;
-	border-radius: 5px;
-	width: 40px;
-	height: 40px;
-	&:hover{
-		background: $btn-primary;
+		background-color: $link-hover;
+		color: $text-color;
 	}
 }

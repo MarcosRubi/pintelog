@@ -1,3 +1,47 @@
+const gallery = [
+	{
+		routeImg: "images/profile/1.jpg",
+		description: "Publicado por",
+	},
+	{
+		routeImg: "images/profile/2.jpg",
+		description: "Publicado por",
+	},
+	{
+		routeImg: "images/profile/3.jpg",
+		description: "Publicado por",
+	},
+	{
+		routeImg: "images/profile/4.jpg",
+		description: "Publicado por",
+	},
+	{
+		routeImg: "images/profile/5.jpg",
+		description: "Publicado por",
+	},
+	{
+		routeImg: "images/profile/6.jpg",
+		description: "Publicado por",
+	},
+	{
+		routeImg: "images/profile/7.jpg",
+		description: "Publicado por",
+	},
+	{
+		routeImg: "images/profile/8.jpg",
+		description: "Publicado por",
+	},
+	{
+		routeImg: "images/profile/9.jpg",
+		description: "Publicado por",
+	},
+	{
+		routeImg: "images/profile/10.jpg",
+		description: "Publicado por",
+	},
+];
+
+
 function showPassword(val) {
 	if (val == "old") {
 		const icon = document.getElementById("toggle-password");
@@ -34,74 +78,46 @@ function showModal(step, last = false) {
 }
 function showMenu() {
 	const menu = document.querySelector("nav.menu ul");
+	const divMenu = document.querySelector("nav.menu");
 	const icon = document.querySelector(".menu__icon--hamburguer");
 
 	icon.classList.toggle("close");
 	menu.classList.toggle("showMenu");
+	divMenu.classList.toggle("show");
 }
-const gallery = [
-	{
-		routeImg : 'images/profile/1.jpg',
-		description: 'Publicado por'
-	},
-	{
-		routeImg : 'images/profile/2.jpg',
-		description: 'Publicado por'
-	},
-	{
-		routeImg : 'images/profile/3.jpg',
-		description: 'Publicado por'
-	},
-	{
-		routeImg : 'images/profile/4.jpg',
-		description: 'Publicado por'
-	},
-	{
-		routeImg : 'images/profile/5.jpg',
-		description: 'Publicado por'
-	},
-	{
-		routeImg : 'images/profile/6.jpg',
-		description: 'Publicado por'
-	},
-	{
-		routeImg : 'images/profile/7.jpg',
-		description: 'Publicado por'
-	},
-	{
-		routeImg : 'images/profile/8.jpg',
-		description: 'Publicado por'
-	},
-	{
-		routeImg : 'images/profile/9.jpg',
-		description: 'Publicado por'
-	},
-	{
-		routeImg : 'images/profile/10.jpg',
-		description: 'Publicado por'
-	}
+function EditPassword() {
+	const divPassword = document.querySelector("#divPassword");
+	divPassword.classList.toggle("show");
+}
+function addFavoritePost(index){
+	let btnPost = document.getElementById(`post-${index}`)
+	btnPost.classList.toggle('favorite')
+}
 
-]
-function getGallery(){
-	let divGallery = document.getElementById('gallery')
-	let content = '' 
-	gallery.forEach(element => {
+function getGallery() {
+	let divGallery = document.getElementById("gallery");
+	let content = "";
+	gallery.forEach((element,index) => {
 		let template = `
 		<div class="gallery__item">
 			<img class="gallery__img" src="${element.routeImg}" alt="Foto publicada por DanielR" />
 			<div class="gallery__content d-flex jc-between align-center p-absolute">
-			<p class="gallery__description"> ${element.description} <a href="profile.html"> DanielR</a></p>
+			<p class="gallery__description"> ${element.description} <a href="perfil.html"> DanielR</a></p>
 			
-				<button type="submit" onclick="window.open('${element.routeImg}')">
+				<button type="submit" class="btn btn-secondary" onclick="addFavoritePost(${index});" id="post-${index}">
+					<i class="fa fa-heart"></i>
+				</button>
+				<button type="submit" class="btn btn-primary" onclick="window.open('${element.routeImg}')">
 					<i class="fa fa-download"></i>
 				</button>
 			</div>
 		</div>
-		`
-		content += template
+		`;
+		content += template;
 	});
-	divGallery.innerHTML += content 
+	divGallery.innerHTML += content;
 }
+
 window.addEventListener("load", () => {
 	if (window.location.href.indexOf("iniciar-sesion") != -1) {
 		const loginForm = document.querySelector(".login-form");
@@ -130,12 +146,25 @@ window.addEventListener("load", () => {
 			});
 		});
 	}
-	if (window.location.href.indexOf("iniciar-sesion") == -1 && window.location.href.indexOf("registro") == -1) {
+	if (
+		window.location.href.indexOf("iniciar-sesion") == -1 &&
+		window.location.href.indexOf("registro") == -1
+	) {
 		//MOSTRAR SUBMENU
 		document.getElementById("showSubmenu").addEventListener("click", () => {
 			const submenu = document.getElementById("submenu");
 			submenu.classList.toggle("show");
 		});
-		getGallery()
+		getGallery();
+	}
+	if (window.location.href.indexOf("editar-perfil") != -1) {
+		//MOSTRAR FOTO SELECCIONADA
+		const span = document.querySelector(".file-label span");
+		const input = document.getElementById("file");
+		input.addEventListener("change", () => {
+			let name = input.files[0].name.slice(0, 5);
+			let format = input.files[0].name.slice(-4);
+			span.innerHTML = `${name}&hellip;${format}`;
+		});
 	}
 });

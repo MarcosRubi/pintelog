@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Inicio | Pintelog</title>
+    <title>Editar Perfil | Pintelog</title>
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon"/>
     <link rel="stylesheet" href="css/main.css"/>
     <script src="https://kit.fontawesome.com/87b8bff04b.js" crossorigin="anonymous"></script>
@@ -43,7 +43,46 @@
         </nav>
       </div>
     </header>
+    <section class="profile container">
+      <form action="#" method="post" onsubmit="return false;" id="edit-profile">
+        <div class="d-flex align-center jc-center flex-column-sm">
+          <div class="profile__img edit">
+            <div class="profileImg bordered p-relative"></div>
+            <div class="field-group p-relative">
+              <input type="file" name="file" id="file" accept="image/*"/>
+              <label class="p-abolute btn btn-primary file-label text-center" for="file"><span>Cambiar foto&hellip;</span></label>
+            </div>
+          </div>
+          <div class="profile__info edit">
+            <div class="input-group p-relative">
+              <input type="text" name="txtUser" id="txtUser"/><span class="p-absolute"><i class="fa fa-user"></i></span>
+              <label class="p-absolute" for="txtUser">Usuario </label>
+            </div>
+            <div class="input-group p-relative">
+              <input type="email" name="txtEmail" id="txtEmail"/><span class="p-absolute"><i class="fa fa-envelope"></i></span>
+              <label class="p-absolute" for="txtEmail">Email</label>
+            </div><a href="#" onclick="javascript:EditPassword();">Cambiar contraseña</a>
+            <div class="d-flex jc-between align-center flex-wrap" id="divPassword">
+              <div class="input-group p-relative">
+                <input type="password" name="txtPassword" id="txtPassword" required=""/><span class="p-absolute"><i class="fa fa-key"></i></span>
+                <label class="p-absolute" for="txtPassword">Contraseña Actual</label><i class=" p-absolute fa fa-eye" id="toggle-password" onclick="showPassword('old')"></i>
+              </div>
+              <div class="input-group p-relative">
+                <input type="password" name="txtPassword" id="txtNewPassword" required=""/><span class="p-absolute"><i class="fa fa-key"></i></span>
+                <label class="p-absolute" for="txtNewPassword">Nueva Contraseña</label><i class=" p-absolute fa fa-eye" id="toggle-password-modal" onclick="showPassword('')"></i>
+              </div>
+            </div>
+            <div class="d-flex align-center btn-group">
+              <input class="btn btn-secondary" type="reset" value="Cancelar"/>
+              <input class="btn btn-primary" type="submit" value="Actualizar"/>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+    <hr/>
     <section class="gallery container">
+      <h2 class="text-center">Publicaciones de DanielR</h2>
       <div class="gallery__container" id="gallery"></div>
     </section>
     <footer> 

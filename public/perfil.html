@@ -18,11 +18,11 @@
         <form class="search-form" action="#" method="post" onsubmit="return false;" id="search">
           <div class="d-flex jc-center">
             <div class="input-group p-relative">
-              <input type="search" name="txtSearch" id="txtSearch" required=""/><span class="p-absolute"><i class="fa fa-search"></i></span>
+              <input type="search" name="txtSearch" id="txtSearch" required=""/>
               <label class="p-absolute" for="txtSearch">Buscar</label>
             </div>
             <div class="input-group">
-              <button class="d-flex jc-center align-center" type="submit"><i class=" fa fa-search"></i></button>
+              <button class="d-flex jc-center align-center btn btn-search" type="submit"><i class=" fa fa-search"></i></button>
             </div>
           </div>
         </form>
@@ -34,7 +34,8 @@
             <li><a href="#">Favoritos </a></li>
             <li class="menu--user d-flex align-center p-relative" id="showSubmenu"><img class="bordered" src="https://via.placeholder.com/50x50" alt="Foto de perfil"/><span>Usuario</span>
               <ul class="p-absolute submenu" id="submenu"> 
-                <li><a href="profile.html">Editar Perfil </a></li>
+                <li><a href="perfil.html">Mi Perfil </a></li>
+                <li><a href="editar-perfil.html">Editar Perfil </a></li>
                 <li><a href="#">Cerrar Sesión</a></li>
               </ul>
             </li>
@@ -48,7 +49,9 @@
           <div class="profileImg bordered"></div>
         </div>
         <div class="profile__info">
-          <h2>DanielR</h2>
+          <div class="d-flex align-center flex-wrap">
+            <h2>DanielR</h2><a class="btn btn-primary " href="editar-perfil.html"> Editar Perfil</a>
+          </div>
           <ul class="d-flex jc-between">
             <li class="d-flex"><span>40</span>
               <p>Publicaciones</p>

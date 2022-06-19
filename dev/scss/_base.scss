@@ -11,6 +11,10 @@
 	font-family: 'Meera Inimai', sans-serif;
 }
 
+body{
+	overflow-x: hidden;
+}
+
 .container {
 	width: 95%;
 	max-width: 1200px;
@@ -51,11 +55,15 @@
 }
 
 .jc-evenly {
-	justify-content: space-between;
+	justify-content: space-evenly;
 }
 
 .jc-start {
 	justify-content: start;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
 }
 
 .text-center {
@@ -96,10 +104,6 @@ h5,
 		position: relative;
 		padding-bottom: 0.5em;
 
-		input[type="submit"] {
-			padding: 0;
-			border-radius: 5px;
-		}
 		&:hover .gallery__content,
 		&:hover .gallery__img {
 			pointer-events: initial;
@@ -124,4 +128,6 @@ h5,
 	&__description {
 		width: 85%;
 	}
+	
 }
+

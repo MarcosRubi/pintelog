@@ -1,27 +1,33 @@
 @import '../variables';
 
-header{
+header {
 	background: $bg-color;
-	.logo{
+
+	.logo {
 		width: 100px;
 		transition: all 400ms;
-		img{
+
+		img {
 			width: 100%;
 		}
-		&:hover{
+
+		&:hover {
 			transform: scale(1.05);
 		}
 	}
-	.menu{
-		a{
+
+	.menu {
+		a {
 			display: block;
 			padding: 5px 15px;
 			transition: all 400ms;
-			&:hover{
+
+			&:hover {
 				color: $link-hover;
 				font-weight: bold;
 			}
 		}
+
 		&__icon--hamburguer {
 			display: block;
 			background-image: url('../images/menu.png') !important;
@@ -30,29 +36,31 @@ header{
 			filter: invert(1);
 			cursor: pointer;
 			display: none;
-			&.close{
+
+			&.close {
 				background-image: url('../images/close.png') !important;
 			}
 		}
 
-		&--user{
+		&--user {
 			color: $link;
 			cursor: pointer;
 			padding-left: 15px;
-			img{
+
+			img {
 				margin-left: 5px;
 				order: 2;
 			}
+
 			span:hover,
-			img:hover ~ span{
+			img:hover~span {
 				color: $link-hover;
 				font-weight: bold;
 			}
-			&:hover > ul{
-				@extend .show;
-			}
+
 		}
-		.submenu{
+
+		.submenu {
 			top: 50px;
 			left: 0;
 			width: 130px;
@@ -61,17 +69,29 @@ header{
 			pointer-events: none;
 			transition: all 400ms;
 			z-index: 100;
-			a{
+
+			a {
 				padding: 15px;
 			}
-			li:first-child{
+
+			li:first-child {
 				padding-top: 10px;
 			}
-			&.show{
+
+			&.show {
 				@extend .show;
 			}
-			
+
 		}
-		
+	}
+
+	input[type="search"],
+	.input-group label {
+		padding-left: 16px;
+	}
+
+	input[type="search"]:focus~label,
+	input[type="search"]:valid~label {
+		left: -15px;
 	}
 }
