@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@300&amp;family=Maven+Pro:wght@500&amp;family=Meera+Inimai&amp;display=swap" rel="stylesheet"/>
   </head>
   <body>
-    <header>
+    <header class="p-fixed">
       <div class="d-flex jc-between align-center container">
         <div class="logo"><a href="index.html"><img src="images/logo.png" alt="Logo Pintelog"/></a></div>
         <form class="search-form" action="#" method="post" onsubmit="return false;" id="search">
@@ -29,21 +29,21 @@
         <div class="menu__icon--hamburguer" onclick="javascript:showMenu();"></div>
         <nav class="menu">
           <ul class="d-flex align-center">
-            <li><a href="#" onclick="javascript:showModalUpload();">Subir </a></li>
-            <li><a href="#">Mis Subidas</a></li>
-            <li><a href="#">Favoritos </a></li>
+            <li><a href="#" onclick="javascript:showModalUpload();showMenu();">Subir </a></li>
+            <li><a href="#" onclick="javascript:showMenu();">Mis Subidas</a></li>
+            <li><a href="#" onclick="javascript:showMenu();">Favoritos </a></li>
             <li class="menu--user d-flex align-center p-relative" id="showSubmenu"><img class="bordered" src="https://via.placeholder.com/50x50" alt="Foto de perfil"/><span>Usuario</span>
               <ul class="p-absolute submenu" id="submenu"> 
-                <li><a href="perfil.html">Mi Perfil </a></li>
-                <li><a href="editar-perfil.html">Editar Perfil </a></li>
-                <li><a href="#">Cerrar Sesión</a></li>
+                <li><a href="perfil.html" onclick="javascript:showMenu();">Mi Perfil </a></li>
+                <li><a href="editar-perfil.html" onclick="javascript:showMenu();">Editar Perfil </a></li>
+                <li><a href="#" onclick="javascript:showMenu();">Cerrar Sesión</a></li>
               </ul>
             </li>
           </ul>
         </nav>
       </div>
     </header>
-    <section class="gallery container">
+    <section class="gallery container main">
       <div class="gallery__container" id="gallery"></div>
     </section>
     <div class="container upload">

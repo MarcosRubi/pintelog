@@ -97,6 +97,10 @@ h5,
   pointer-events: none;
 }
 
+.main {
+  margin-top: 100px;
+}
+
 .gallery {
   padding: 30px 0px;
 }
@@ -122,13 +126,15 @@ h5,
   transform: scale(1.02);
   opacity: 1;
 }
+.gallery__item:hover .gallery__content {
+  bottom: 0.5rem;
+}
 .gallery__content {
   position: absolute;
-  bottom: 0.45rem;
+  bottom: 0.7rem;
   background: rgba(207, 216, 220, 0.8);
   border-radius: 0px 0px 5px 5px;
   width: 100%;
-  z-index: 10;
   padding: 10px;
   opacity: 0;
   pointer-events: none;
@@ -225,6 +231,10 @@ h5,
 
 header {
   background: #cfd8dc;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 
 header .logo {
@@ -370,10 +380,6 @@ input[type=search]:valid ~ label {
 input[type=search] {
   width: 310px;
   border-radius: 5px 0px 0px 5px;
-}
-
-input[type=file] {
-  display: none;
 }
 
 .field-group {
@@ -529,6 +535,7 @@ footer {
 
 .profile {
   padding: 30px;
+  margin-top: 100px;
 }
 .profile__img .profileImg {
   background-image: url(https://via.placeholder.com/250x150);
@@ -606,7 +613,7 @@ footer {
   }
   header .menu .submenu {
     width: 100%;
-    top: 100px;
+    top: 70px;
   }
   header .menu .submenu li {
     padding: 5px 15px;
@@ -626,7 +633,7 @@ footer {
   }
   header .menu ul li.d-flex {
     justify-content: center;
-    padding: 25px 15px;
+    padding: 10px 0px;
     padding-right: 27px;
   }
   header .menu ul li.d-flex::after {
@@ -701,6 +708,9 @@ footer {
     top: 163px;
   }
 
+  .profile {
+    margin-top: 164px;
+  }
   .profile__info {
     margin-left: 10px;
   }
@@ -719,6 +729,10 @@ footer {
 
   .flex-column-sm {
     flex-direction: column;
+  }
+
+  .main {
+    margin-top: 164px;
   }
 }
 

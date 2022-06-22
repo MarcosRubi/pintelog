@@ -1,29 +1,28 @@
-header
+header(class="p-fixed")
 	div(class="d-flex jc-between align-center container")
 		div(class="logo")
 			a(href="index.html")
 				img(src="images/logo.png" alt="Logo Pintelog") 
 		form(action="#" method="post" onsubmit="return false;" id="search" class="search-form")
-				div(class="d-flex jc-center")
-					div(class="input-group p-relative")
-						input(type="search" name="txtSearch" id="txtSearch" required="")
-						label(for="txtSearch" class="p-absolute") Buscar
-					div(class="input-group")
-						button(type="submit" class="d-flex jc-center align-center btn btn-search"): i(class=" fa fa-search")
-		div(class="menu__icon--hamburguer"  onclick="javascript:showMenu();")
+			div(class="d-flex jc-center")
+				div(class="input-group p-relative")
+					input(type="search" name="txtSearch" id="txtSearch" required="")
+					label(for="txtSearch" class="p-absolute") Buscar
+				div(class="input-group")
+					button(type="submit" class="d-flex jc-center align-center btn btn-search"): i(class=" fa fa-search")
+		div(class="menu__icon--hamburguer" onclick="javascript:showMenu();")
 		nav(class="menu")
 			ul(class="d-flex align-center")
 				li
-					a(href="#" onclick="javascript:showModalUpload();") Subir 
+					a(href="#" onclick="javascript:showModalUpload();showMenu();") Subir 
 				li
-					a(href="#") Mis Subidas
+					a(href="#" onclick="javascript:showMenu();") Mis Subidas
 				li
-					a(href="#") Favoritos 
+					a(href="#" onclick="javascript:showMenu();") Favoritos 
 				li(class="menu--user d-flex align-center p-relative" id="showSubmenu")
 					img(src="https://via.placeholder.com/50x50" alt="Foto de perfil" class="bordered")
 					span Usuario
 					ul(class="p-absolute submenu" id="submenu") 
-						li: a(href="perfil.html") Mi Perfil 
-						li: a(href="editar-perfil.html") Editar Perfil 
-						li: a(href="#") Cerrar Sesión
-				
+						li: a(href="perfil.html" onclick="javascript:showMenu();") Mi Perfil 
+						li: a(href="editar-perfil.html" onclick="javascript:showMenu();") Editar Perfil 
+						li: a(href="#" onclick="javascript:showMenu();") Cerrar Sesión

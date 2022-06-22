@@ -93,6 +93,10 @@ h5,
 }
 
 // ESTILOS DE LA GALERIA
+.main {
+	margin-top: 100px;
+}
+
 .gallery {
 	padding: 30px 0px;
 
@@ -122,15 +126,17 @@ h5,
 			transform: scale(1.02);
 			opacity: 1;
 		}
+		&:hover .gallery__content{
+			bottom: 0.5rem;
+		}
 	}
 
 	&__content {
 		position: absolute;
-		bottom: 0.45rem;
+		bottom: 0.7rem;
 		background: rgba(207, 216, 220, 0.8);
 		border-radius: 0px 0px 5px 5px;
 		width: 100%;
-		z-index: 10;
 		padding: 10px;
 		opacity: 0;
 		pointer-events: none;

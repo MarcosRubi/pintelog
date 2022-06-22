@@ -2,7 +2,10 @@
 
 header {
 	background: $bg-color;
-
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: 1000;
 	.logo {
 		width: 100px;
 		transition: all 400ms;

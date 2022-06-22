@@ -28,7 +28,7 @@
 
 			.submenu {
 				width: 100%;
-				top: 100px;
+				top: 70px;
 
 				li {
 					padding: 5px 15px;
@@ -51,7 +51,7 @@
 
 				li.d-flex {
 					justify-content: center;
-					padding: 25px 15px;
+					padding: 10px 0px;
 					padding-right: 27px;
 
 					&::after {
@@ -150,6 +150,7 @@
 	}
 
 	.profile {
+		margin-top: 164px;
 		&__info {
 			margin-left: 10px;
 			ul {
@@ -171,6 +172,9 @@
 
 	.flex-column-sm {
 		flex-direction: column;
+	}
+	.main{
+		margin-top: 164px;
 	}
 
 }
