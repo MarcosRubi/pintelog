@@ -1,0 +1,15 @@
+div(class="container upload")
+	div(class="modal-center p-absolute")
+		div(class="modal")
+			h2 Subir archivo
+			div(class="drag-area d-flex align-center jc-center flex-column")
+				div(class="icon"): i(class="fa fa-images")
+				span(class="header") Arrastra y suelta
+				span(class="header") o 
+				input(type="file" id="file" hidden)
+				label(for="file" class="btn btn-primary") explorar
+				span(class="support") Solo archivos: JPEG, JPG o PNG
+			div(class="d-flex align-center jc-end btn-group")
+				button(class="btn btn-secondary" onclick="javascript:closeModalUpload();") Cancelar
+				button(class="btn btn-primary") Publicar
+		

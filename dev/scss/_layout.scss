@@ -4,10 +4,9 @@
 @media (max-width:992px) {
 	header {
 		.menu {
-			position: absolute;
+			position: fixed;
 			width: 100%;
 			height: calc(100vh - 100px);
-			position: absolute;
 			top: 100px;
 			right: 0px;
 			z-index: 100;
@@ -152,6 +151,7 @@
 
 	.profile {
 		&__info {
+			margin-left: 10px;
 			ul {
 				flex-direction: column;
 			}
@@ -159,6 +159,13 @@
 			h2 {
 				font-size: 1.8rem;
 			}
+			> div.flex-wrap{
+				margin-left: 0px;
+			}
+		}
+		
+		a.btn{
+			margin-left: 0;
 		}
 	}
 

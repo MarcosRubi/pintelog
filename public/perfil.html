@@ -29,7 +29,7 @@
         <div class="menu__icon--hamburguer" onclick="javascript:showMenu();"></div>
         <nav class="menu">
           <ul class="d-flex align-center">
-            <li><a href="#">Subir </a></li>
+            <li><a href="#" onclick="javascript:showModalUpload();">Subir </a></li>
             <li><a href="#">Mis Subidas</a></li>
             <li><a href="#">Favoritos </a></li>
             <li class="menu--user d-flex align-center p-relative" id="showSubmenu"><img class="bordered" src="https://via.placeholder.com/50x50" alt="Foto de perfil"/><span>Usuario</span>
@@ -49,7 +49,7 @@
           <div class="profileImg bordered"></div>
         </div>
         <div class="profile__info">
-          <div class="d-flex align-center flex-wrap">
+          <div class="d-flex align-center flex-wrap flex-column-sm">
             <h2>DanielR</h2><a class="btn btn-primary " href="editar-perfil.html"> Editar Perfil</a>
           </div>
           <ul class="d-flex jc-between">
@@ -68,6 +68,22 @@
       <h2 class="text-center">Publicaciones de DanielR</h2>
       <div class="gallery__container" id="gallery"></div>
     </section>
+    <div class="container upload">
+      <div class="modal-center p-absolute">
+        <div class="modal">
+          <h2>Subir archivo</h2>
+          <div class="drag-area d-flex align-center jc-center flex-column">
+            <div class="icon"><i class="fa fa-images"></i></div><span class="header">Arrastra y suelta</span><span class="header">o </span>
+            <input type="file" id="file" hidden="hidden"/>
+            <label class="btn btn-primary" for="file">explorar</label><span class="support">Solo archivos: JPEG, JPG o PNG</span>
+          </div>
+          <div class="d-flex align-center jc-end btn-group">
+            <button class="btn btn-secondary" onclick="javascript:closeModalUpload();">Cancelar</button>
+            <button class="btn btn-primary">Publicar</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <footer> 
       <p>© 2022 Pintelog | creado por <a href="https://mrubi.vercel.app/">Marcos Rubí </a></p>
     </footer>

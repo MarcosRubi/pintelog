@@ -1,4 +1,4 @@
-.subtitle, .modal > p, .login-form > p {
+.subtitle, .login-form > p, .modal > p {
   font-size: 0.8rem;
   color: #90a4ae;
   margin: 5px 0px;
@@ -71,6 +71,10 @@ body {
   flex-wrap: wrap;
 }
 
+.flex-column {
+  flex-direction: column;
+}
+
 .text-center {
   text-align: center;
 }
@@ -88,8 +92,16 @@ h5,
   border-radius: 50%;
 }
 
+.hide, .login-form.hide {
+  filter: blur(5px) brightness(30%);
+  pointer-events: none;
+}
+
 .gallery {
   padding: 30px 0px;
+}
+.gallery h2 {
+  padding-bottom: 30px;
 }
 .gallery__container {
   columns: 3 320px;
@@ -126,7 +138,81 @@ h5,
   width: 85%;
 }
 
-.subtitle, .modal > p, .login-form > p {
+.modal-center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 400ms;
+  filter: blur(40);
+}
+.modal {
+  background: #fff;
+  padding: 20px 40px;
+  border-radius: 5px;
+  width: 600px;
+}
+.modal > p {
+  width: 85%;
+  line-height: 1.3;
+}
+.modal div p {
+  margin-top: 15px;
+}
+.modal .close {
+  font-size: 1.2rem;
+  color: #0288d1;
+  padding: 0px 15px;
+  cursor: pointer;
+}
+.modal .close:hover {
+  color: #01579b;
+}
+.modal .input-group {
+  margin: 25px 0px 10px 0px;
+}
+
+.upload {
+  max-width: 550px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 5px;
+}
+.upload .modal {
+  box-shadow: #90a4ae 0px 8px 24px;
+}
+.upload .drag-area {
+  height: 300px;
+  border: 3px dashed #90a4ae;
+  margin: 10px auto;
+}
+.upload .drag-area.active {
+  border: 2px solid #263238;
+}
+.upload .drag-area img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.upload .icon {
+  font-size: 2rem;
+}
+.upload .header {
+  font-size: 1.5rem;
+  color: #90a4ae;
+}
+.upload .support {
+  font-size: 0.9rem;
+  color: #90a4ae;
+  margin: 10px 0px 15px 0px;
+}
+.upload label.btn {
+  padding: 15px 20px;
+}
+
+.subtitle, .login-form > p, .modal > p {
   font-size: 0.8rem;
   color: #90a4ae;
   margin: 5px 0px;
@@ -318,7 +404,7 @@ input[type=file] {
 }
 
 .gallery__item button.favorite {
-  color: #0471ac;
+  color: crimson;
   border: 1px solid #0471ac;
 }
 
@@ -374,7 +460,7 @@ input[type=file] {
   margin: 0px;
 }
 
-.subtitle, .modal > p, .login-form > p {
+.subtitle, .login-form > p, .modal > p {
   font-size: 0.8rem;
   color: #90a4ae;
   margin: 5px 0px;
@@ -406,10 +492,6 @@ footer {
   padding: 30px;
   height: auto;
   background-color: #fff;
-}
-.login-form.hide {
-  filter: blur(5px) brightness(30%);
-  pointer-events: none;
 }
 .login-form > a, .login-form > div p {
   display: block;
@@ -445,46 +527,6 @@ footer {
   padding-left: 30px;
 }
 
-.modal-center {
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 400ms;
-  filter: blur(40);
-}
-.modal {
-  background: #fff;
-  padding: 20px 40px;
-  border-radius: 5px;
-  width: 600px;
-}
-.modal > p {
-  width: 85%;
-  line-height: 1.3;
-}
-.modal div p {
-  margin-top: 15px;
-}
-.modal .close {
-  font-size: 1.2rem;
-  color: #0288d1;
-  padding: 0px 15px;
-  cursor: pointer;
-}
-.modal .close:hover {
-  color: #01579b;
-}
-.modal .input-group {
-  margin: 25px 0px 10px 0px;
-}
-
-h2 {
-  padding-bottom: 30px;
-}
-
 .profile {
   padding: 30px;
 }
@@ -501,9 +543,8 @@ h2 {
   padding-right: 5px;
   font-weight: bold;
 }
-.profile h2 {
-  padding: 0px 10px 10px 10px;
-  padding-bottom: 10px;
+.profile__info > div.flex-wrap {
+  margin-left: 10px;
 }
 .profile a.btn {
   padding: 10px 15px;
@@ -544,10 +585,9 @@ h2 {
 
 @media (max-width: 992px) {
   header .menu {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: calc(100vh - 100px);
-    position: absolute;
     top: 100px;
     right: 0px;
     z-index: 100;
@@ -661,11 +701,20 @@ h2 {
     top: 163px;
   }
 
+  .profile__info {
+    margin-left: 10px;
+  }
   .profile__info ul {
     flex-direction: column;
   }
   .profile__info h2 {
     font-size: 1.8rem;
+  }
+  .profile__info > div.flex-wrap {
+    margin-left: 0px;
+  }
+  .profile a.btn {
+    margin-left: 0;
   }
 
   .flex-column-sm {

@@ -8,7 +8,7 @@ block content
 			div(class="profile__img")
 				div(class="profileImg bordered")
 			div(class="profile__info")
-				div(class="d-flex align-center flex-wrap")
+				div(class="d-flex align-center flex-wrap flex-column-sm")
 					h2 DanielR
 					a(href="editar-perfil.html" class="btn btn-primary ")  Editar Perfil
 				ul(class="d-flex jc-between")
@@ -23,4 +23,5 @@ block content
 		section(class="gallery container")
 			h2(class="text-center") Publicaciones de DanielR
 			include ../includes/gallery
-					
+	block upload
+		include ../includes/upload				

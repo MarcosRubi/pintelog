@@ -41,7 +41,6 @@ const gallery = [
 	},
 ];
 
-
 function showPassword(val) {
 	if (val == "old") {
 		const icon = document.getElementById("toggle-password");
@@ -76,6 +75,35 @@ function showModal(step, last = false) {
 	}
 	last ? divModal.classList.remove("show") : "";
 }
+function showModalUpload(){
+	const divModal = document.querySelector('.upload .modal-center')
+	const header = document.querySelector('header')
+	const sectionGallery = document.querySelector('section.gallery')
+	
+	if (window.location.href.indexOf("perfil") != -1 ){
+		const sectionProfile = document.querySelector('section.profile')
+		sectionProfile.classList.add('hide')
+	}
+
+	divModal.classList.add('show')
+	header.classList.add('hide')
+	sectionGallery.classList.add('hide')
+
+}
+function closeModalUpload(){
+	const divModal = document.querySelector('.upload .modal-center')
+	const header = document.querySelector('header')
+	const sectionGallery = document.querySelector('section.gallery')
+
+	if (window.location.href.indexOf("perfil") != -1){
+		const sectionProfile = document.querySelector('section.profile')
+		sectionProfile.classList.remove('hide')
+	}
+	
+	divModal.classList.remove('show')
+	header.classList.remove('hide')
+	sectionGallery.classList.remove('hide')
+}
 function showMenu() {
 	const menu = document.querySelector("nav.menu ul");
 	const divMenu = document.querySelector("nav.menu");
@@ -89,15 +117,14 @@ function EditPassword() {
 	const divPassword = document.querySelector("#divPassword");
 	divPassword.classList.toggle("show");
 }
-function addFavoritePost(index){
-	let btnPost = document.getElementById(`post-${index}`)
-	btnPost.classList.toggle('favorite')
+function addFavoritePost(index) {
+	let btnPost = document.getElementById(`post-${index}`);
+	btnPost.classList.toggle("favorite");
 }
-
 function getGallery() {
 	let divGallery = document.getElementById("gallery");
 	let content = "";
-	gallery.forEach((element,index) => {
+	gallery.forEach((element, index) => {
 		let template = `
 		<div class="gallery__item">
 			<img class="gallery__img" src="${element.routeImg}" alt="Foto publicada por DanielR" />
@@ -117,7 +144,24 @@ function getGallery() {
 	});
 	divGallery.innerHTML += content;
 }
+function displayFileModal() {
+	const dragArea = document.querySelector(".drag-area");
+	let fileType = file.type;
+	let validExtensions = ["image/jpeg", "image/jpg", "image/png"];
 
+	if (validExtensions.includes(fileType)) {
+		let reader = new FileReader();
+		reader.onload = function () {
+			let dataURL = reader.result;
+			let image = `<img src="${dataURL}" alt=""/>`;
+			dragArea.innerHTML = image;
+		};
+		reader.readAsDataURL(file);
+	} else {
+		alert("Formato de archivo no valido!");
+		dragArea.classList.remove("active");
+	}
+}
 window.addEventListener("load", () => {
 	if (window.location.href.indexOf("iniciar-sesion") != -1) {
 		const loginForm = document.querySelector(".login-form");
@@ -156,6 +200,35 @@ window.addEventListener("load", () => {
 			submenu.classList.toggle("show");
 		});
 		getGallery();
+
+		//MODAL DE SUBIR FOTO
+		const dragArea = document.querySelector(".drag-area");
+		const dragText = document.querySelector(".header");
+		const input = document.querySelector("#file");
+
+		input.addEventListener("change", () => {
+			file = input.files[0];
+			dragArea.classList.add("active");
+			displayFileModal();
+		});
+
+		dragArea.addEventListener("dragover", (e) => {
+			e.preventDefault();
+			dragText.textContent = "Suelte para subir";
+			dragArea.classList.add("active");
+		});
+		dragArea.addEventListener("dragleave", (e) => {
+			e.preventDefault();
+			dragText.textContent = "Arrastra y suelta";
+			dragArea.classList.remove("active");
+		});
+		dragArea.addEventListener("drop", (e) => {
+			e.preventDefault();
+
+			file = e.dataTransfer.files[0];
+
+			displayFileModal();
+		});
 	}
 	if (window.location.href.indexOf("editar-perfil") != -1) {
 		//MOSTRAR FOTO SELECCIONADA

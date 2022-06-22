@@ -1,9 +1,8 @@
-h2 {
-	padding-bottom: 30px;
-}
+
 
 .profile {
 	padding: 30px;
+	
 
 	&__img {
 		.profileImg {
@@ -23,12 +22,11 @@ h2 {
 			padding-right: 5px;
 			font-weight: bold;
 		}
+		> div.flex-wrap{
+			margin-left: 10px;
+		}
 	}
 
-	h2 {
-		padding: 0px 10px 10px 10px;
-		padding-bottom: 10px;
-	}
 	a.btn{
 		padding: 10px 15px;
 		margin-left: 10px;
