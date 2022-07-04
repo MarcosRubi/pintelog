@@ -5,7 +5,7 @@ header {
 	position: fixed;
 	width: 100%;
 	top: 0;
-	z-index: 1000;
+	z-index: 500;
 	.logo {
 		width: 100px;
 		transition: all 400ms;
@@ -26,6 +26,10 @@ header {
 			transition: all 400ms;
 
 			&:hover {
+				color: $link-hover;
+				font-weight: bold;
+			}
+			&.active{
 				color: $link-hover;
 				font-weight: bold;
 			}
@@ -50,13 +54,8 @@ header {
 			cursor: pointer;
 			padding-left: 15px;
 
-			img {
-				margin-left: 5px;
-				order: 2;
-			}
-
 			span:hover,
-			img:hover~span {
+			.divPictureProfile:hover~span {
 				color: $link-hover;
 				font-weight: bold;
 			}
@@ -71,7 +70,7 @@ header {
 			opacity: 0;
 			pointer-events: none;
 			transition: all 400ms;
-			z-index: 100;
+			z-index: 500;
 
 			a {
 				padding: 15px;

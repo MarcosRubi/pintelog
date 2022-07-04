@@ -7,10 +7,11 @@
 
 	&__img {
 		.profileImg {
-			background-image: url(https://via.placeholder.com/250x150);
-			background-position: center center;
 			width: 150px;
 			height: 150px;
+			img{
+				width: 100%;
+			}
 		}
 	}
 

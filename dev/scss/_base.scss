@@ -14,7 +14,15 @@
 body {
 	overflow-x: hidden;
 }
-
+.subtitle{
+    font-size: 0.8rem;
+    color: $text-secondary;
+    margin: 5px 0px;
+}
+.show {
+	opacity: 1 !important;
+	pointer-events: initial !important;
+}
 .container {
 	width: 95%;
 	max-width: 1200px;
@@ -85,6 +93,7 @@ h5,
 
 .bordered {
 	border-radius: 50%;
+	overflow: hidden;
 }
 
 .hide {
