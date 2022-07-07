@@ -12,6 +12,12 @@ class Users extends BD
 		return $this->EjectQuery($query);
 	}
 
+	public function ListAllUsersByName()
+	{
+		$query = "SELECT * FROM tbl_users WHERE Username LIKE'%" . $this->Username . "%'";
+		return $this->EjectQuery($query);
+	}
+
 	public function FindByUsername()
 	{
 		$query = "SELECT * FROM tbl_users WHERE Username='" . $this->Username . "'";

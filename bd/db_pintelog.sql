@@ -30,13 +30,6 @@ CREATE TABLE `tbl_favorites`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of tbl_favorites
--- ----------------------------
-INSERT INTO `tbl_favorites` VALUES (14, 12, 5, 'N');
-INSERT INTO `tbl_favorites` VALUES (15, 13, 5, 'N');
-INSERT INTO `tbl_favorites` VALUES (16, 14, 5, 'N');
-
--- ----------------------------
 -- Table structure for tbl_posts
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_posts`;
@@ -46,13 +39,6 @@ CREATE TABLE `tbl_posts`  (
   `ImgPostURL` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`IDPost`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of tbl_posts
--- ----------------------------
-INSERT INTO `tbl_posts` VALUES (12, 5, 'images/post/post2207031101295.png');
-INSERT INTO `tbl_posts` VALUES (13, 5, 'images/post/post2207031101335.png');
-INSERT INTO `tbl_posts` VALUES (14, 5, 'images/post/post2207031101375.png');
 
 -- ----------------------------
 -- Table structure for tbl_users

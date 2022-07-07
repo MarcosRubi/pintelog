@@ -240,6 +240,53 @@ header .logo:hover {
   transform: scale(1.05);
 }
 
+header .results {
+  width: 100%;
+  left: 0px;
+  top: 80px;
+  width: 86%;
+}
+
+header .results li {
+  background-color: #cfd8dc;
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #263238;
+  transition: all 400ms;
+}
+
+header .results li:hover {
+  background-color: #0288d1 !important;
+}
+
+header .results li:hover > a {
+  color: #fff !important;
+}
+
+header .results li:nth-child(odd) {
+  background-color: #90a4ae;
+}
+
+header .results li:first-child {
+  border-radius: 5px 5px 0px 0px;
+}
+
+header .results li:last-child {
+  border-radius: 0px 0px 5px 5px;
+  border-bottom: none;
+}
+
+header .results #imgProfile {
+  width: 50px;
+  height: 50px;
+}
+
+header .results a {
+  padding-left: 10px;
+  color: #263238;
+  transition: all 400ms;
+}
+
 header .menu a {
   display: block;
   padding: 5px 15px;

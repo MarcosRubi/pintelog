@@ -182,6 +182,18 @@ function addItemActive(id) {
 	});
 }
 
+function typeInputSearch(){
+	const input = document.getElementById('txtSearch');
+	input.addEventListener('keyup', ()=>{
+		getResults(input.value);
+	})
+}
+
+function clearList(){
+	document.getElementById('txtSearch').value ="";
+	document.getElementById('resultSearch').innerHTML = "";
+}
+
 // COMPONENTES
 function getComponentHeader() {
 	xhr = new XMLHttpRequest();
@@ -191,6 +203,7 @@ function getComponentHeader() {
 	res = xhr.responseText;
 	con.innerHTML = res.ConvertirResponseText();
 	addItemActive();
+	typeInputSearch();
 }
 
 function getComponentProfile(id) {
@@ -408,6 +421,15 @@ function toggleFavorite(idPost) {
 	res = xhr.responseText;
 	con.innerHTML = res.ConvertirResponseText();
 	hideMessage();
+}
+
+function getResults(txtSearch) {
+	xhr = new XMLHttpRequest();
+	xhr.open("GET", "func/getResults.php?s=" + txtSearch, false);
+	xhr.send();
+	con = document.getElementById("resultSearch");
+	res = xhr.responseText;
+	con.innerHTML = res.ConvertirResponseText();
 }
 
 function deletePost(idPost) {

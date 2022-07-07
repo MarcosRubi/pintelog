@@ -1,4 +1,5 @@
-<?php session_start(); 
+<?php 
+session_start(); 
 if (isset($_SESSION['username']) && $_SESSION['logged'] != 'n') {
 ?>
 <style>
@@ -14,8 +15,7 @@ if (isset($_SESSION['username']) && $_SESSION['logged'] != 'n') {
 <header class="p-fixed">
 	<div class="d-flex jc-between align-center container">
 		<div class="logo"><a href="#" onclick="javascrip:getViewHome();"><img src="images/logo.png" alt="Logo Pintelog" /></a></div>
-		<form class="search-form" action="#" method="post" onsubmit="return false;" id="search">
-			<div class="d-flex jc-center">
+			<div class="d-flex jc-center p-relative">
 				<div class="input-group p-relative">
 					<input type="search" name="txtSearch" id="txtSearch" required="" />
 					<label class="p-absolute" for="txtSearch">Buscar</label>
@@ -23,8 +23,10 @@ if (isset($_SESSION['username']) && $_SESSION['logged'] != 'n') {
 				<div class="input-group">
 					<button class="d-flex jc-center align-center btn btn-search" type="submit"><i class=" fa fa-search"></i></button>
 				</div>
+				<div class="results p-absolute">
+					<ul id="resultSearch"></ul>	
+				</div>
 			</div>
-		</form>
 		<div class="menu__icon--hamburguer" onclick="javascript:showMenuHamburguer();"></div>
 		<nav class="menu">
 			<ul class="d-flex align-center">
