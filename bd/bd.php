@@ -9,7 +9,7 @@ class BD
 	private $User;
 	private $Password;
 	private $DataBase;
-	private $connect;
+	private $Connect;
 	private $ResultQuery;
 
 	public function __construct()

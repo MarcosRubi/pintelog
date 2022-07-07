@@ -10,7 +10,7 @@ session_start();
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Pintelog</title>
 	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
-	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="css/main.min.css" />
 	<script src="https://kit.fontawesome.com/87b8bff04b.js" crossorigin="anonymous"></script>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
@@ -27,7 +27,7 @@ session_start();
 	<div id="modalUploadContainer"></div>
 	<div id="footerContainer"></div>
 
-	<script src="js/scripts.js"></script>
+	<script src="js/scripts.min.js"></script>
 	<?php require_once 'func/validateSession.php';?>
 </body>
 

@@ -4,9 +4,10 @@ class Email
 	public $key;
 	public $username;
 
-	public function templateSubject(){
+	public function templateSubject()
+	{
 		return utf8_decode("Código de verificación para restablecer la contraseña de Pintelog");
-	}	
+	}
 
 	public function templateBody()
 	{
@@ -236,7 +237,30 @@ class Email
 		
 		</html>";
 	}
+	public function altTemplateBody()
+	{
+		return "
+		
+			<img align=\"center\" border=\"0\" src=\"https://i.ibb.co/RjBbXcv/logo.png\" alt=\"Image\" title=\"Image\" style=\"outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 29%;max-width: 168.2px;\" width=\"168.2\" />
 
+		
+			<img align=\"center\" border=\"0\" src=\"https://i.ibb.co/FXxbNS2/image-1.png\" alt=\"Image\" title=\"Image\" style=\"outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 10%;max-width: 58px;\" width=\"58\" />
+		
+		
+			<div style=\"line-height: 140%; text-align: left; word-wrap: break-word;\">
+				<p style=\"font-size: 14px; line-height: 140%; text-align: center;\"><span style=\"font-size: 28px; line-height: 39.2px; color: #ffffff; font-family: Lato, sans-serif;\">Código: $this->key</span></p>
+			</div>
+		
+			<div style=\"line-height: 140%; text-align: left; word-wrap: break-word;\">
+				<p style=\"font-size: 14px; line-height: 140%;\"><span style=\"font-size: 18px; line-height: 25.2px; color: #666666;\">Hola, $this->username</span></p>
 
+				<p style=\"font-size: 14px; line-height: 140%;\"><span style=\"font-size: 18px; line-height: 25.2px; color: #666666;\">Has recibido este email ya que has solicitado restablecer tu contraseña en <a href=\"pintelog.com\" target=\"_blank\">Pintelog<a>.</span></p>
 
+				<p style=\"font-size: 14px; line-height: 140%;\"><span style=\"font-size: 18px; line-height: 25.2px; color: #666666;\">Para restablecer la contraseña, por favor ingresa el código en el sitio web.</span></p>
+			</div>
+		
+			<div style=\"line-height: 140%; text-align: left; word-wrap: break-word;\">
+				<p style=\"font-size: 14px; line-height: 140%;\"><span style=\"color: #888888; font-size: 14px; line-height: 19.6px;\"><em><span style=\"font-size: 16px; line-height: 22.4px;\">Por favor ignora este email si tú no has solicitado un cambio de contraseña.</span></em></span><br /><span style=\"color: #888888; font-size: 14px; line-height: 19.6px;\"><em><span style=\"font-size: 16px; line-height: 22.4px;\"> </span></em></span></p>
+			</div>";
+	}
 }

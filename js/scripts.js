@@ -157,10 +157,10 @@ function addFavoritePost(index) {
 
 function hideMessage(btn = false) {
 	btn
-		? document.querySelector("li.message").classList.add("hide")
+		? document.querySelector("p.message").classList.add("hide")
 		: setTimeout(() => {
-				document.querySelector("li.message")
-					? document.querySelector("li.message").classList.add("hide")
+				document.querySelector("p.message")
+					? document.querySelector("p.message").classList.add("hide")
 					: "";
 		  }, 3000);
 }

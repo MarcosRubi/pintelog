@@ -11,7 +11,7 @@
  Target Server Version : 100424
  File Encoding         : 65001
 
- Date: 04/07/2022 08:01:04
+ Date: 07/07/2022 11:32:19
 */
 
 SET NAMES utf8mb4;
@@ -27,7 +27,7 @@ CREATE TABLE `tbl_favorites`  (
   `IDUserAddFavorite` int(11) NOT NULL,
   `Favorite` varchar(1) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y',
   PRIMARY KEY (`IDFavorite`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for tbl_posts
@@ -38,7 +38,7 @@ CREATE TABLE `tbl_posts`  (
   `IDUser` int(11) NOT NULL,
   `ImgPostURL` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`IDPost`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for tbl_users
@@ -51,12 +51,7 @@ CREATE TABLE `tbl_users`  (
   `PasswordUser` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `ImgUserURL` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'images/profile/default.png',
   PRIMARY KEY (`IDUser`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of tbl_users
--- ----------------------------
-INSERT INTO `tbl_users` VALUES (5, 'Daniel', 'Danielhernandez9980@gmail.com', '9c0479dfa3cea6e19ea2f2673e4d415e', 'images/profile/default.png');
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- View structure for vta_allposts

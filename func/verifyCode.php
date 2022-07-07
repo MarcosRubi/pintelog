@@ -3,13 +3,15 @@ session_start();
 if (isset($_SESSION['emailResetPassword'])) {
 	require_once '../bd/bd.php';
 	require_once '../class/Users.php';
+	require_once '../class/Settings.php';
 
 	$Obj_Users = new Users();
+	$Obj_Settings = new Settings();
 
 	//RECUPERANDO KEY
 	$key = $_COOKIE['code'];
 
-	$code = $Obj_Users->clearParam($_POST['txtCodeVerify']);
+	$code = $Obj_Settings->clearParamText($_POST['txtCodeVerify']);
 
 	//VALIDACIONES
 	$errors = array();
@@ -18,9 +20,10 @@ if (isset($_SESSION['emailResetPassword'])) {
 
 	//MOSTRAR ERRORES
 	if (count($errors) > 0) {
-		echo "<li class=\"d-flex jc-between message error p-absolute\">$errors[0] <span onclick=\"hideMessage(true);\">X</span></li>";
+		echo $Obj_Settings->message("error", $errors[0]);
 	} else {
 		setcookie("code", null, time() - 1);
+		
 		//MOSTRAR SIGUIENTE PASO
 		echo "<script type=\"text/javascript\">showModalPassword(3);</script>";
 	}

@@ -15,7 +15,7 @@ if (isset($_SESSION['username']) && $_SESSION['logged'] != 'n') {
 <header class="p-fixed">
 	<div class="d-flex jc-between align-center container">
 		<div class="logo"><a href="#" onclick="javascrip:getViewHome();"><img src="images/logo.png" alt="Logo Pintelog" /></a></div>
-			<div class="d-flex jc-center p-relative">
+			<div class="d-flex jc-center p-relative search-form">
 				<div class="input-group p-relative">
 					<input type="search" name="txtSearch" id="txtSearch" required="" />
 					<label class="p-absolute" for="txtSearch">Buscar</label>

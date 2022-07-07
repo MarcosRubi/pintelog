@@ -14,7 +14,7 @@ class Users extends BD
 
 	public function ListAllUsersByName()
 	{
-		$query = "SELECT * FROM tbl_users WHERE Username LIKE'%" . $this->Username . "%'";
+		$query = "SELECT * FROM tbl_users WHERE Username LIKE'%" . $this->Username . "%' LIMIT 5";
 		return $this->EjectQuery($query);
 	}
 
@@ -65,8 +65,5 @@ class Users extends BD
 		return $this->EjectQuery($query);
 	}
 
-	public function clearParam($val)
-{
-	return trim(ucfirst(strtolower(strip_tags($val))));
-}
+
 }

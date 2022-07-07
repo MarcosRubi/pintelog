@@ -3,8 +3,10 @@ session_start();
 if (isset($_SESSION['emailResetPassword'])) {
 require_once '../bd/bd.php';
 require_once '../class/Users.php';
+require_once '../class/Settings.php';
 
 $Obj_Users = new Users();
+$Obj_Settings = new Settings();
 
 $email = $_SESSION['emailResetPassword'];
 
@@ -24,11 +26,12 @@ strlen(trim($_POST['txtNewPassword'])) >= 7 ?: array_push($errors, "La contrase�
 
 //MOSTRAR ERRORES
 if (count($errors) > 0) {
-	echo "<li class=\"d-flex jc-between message error p-absolute\">$errors[0] <span onclick=\"hideMessage(true);\">X</span></li>";
+	echo $Obj_Settings->message("error", $errors[0]);
 } else {
 	//ACTUALIZANDO CONTRASEÑA EN BASE DE DATOS
 	$Obj_Users->UpdateUser($DataUser['IDUser']);
-	echo "<li class=\"d-flex jc-between message success p-absolute\">Contraseña actualizada correctamente!<span onclick=\"hideMessage(true);\">X</span></li>";
+
+	echo $Obj_Settings->message("success", "Contraseña actualizada correctamente!");
 
 	// 	//REDIRECCIONANDO A LOGIN
 	echo "<script type=\"text/javascript\">getViewLogin();</script>";

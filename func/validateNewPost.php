@@ -4,7 +4,9 @@ if (isset($_SESSION['username']) && $_SESSION['logged'] != 'n') {
 
 	require_once '../bd/bd.php';
 	require_once '../class/Posts.php';
+	require_once '../class/Settings.php';
 
+	$Obj_Settings = new Settings();
 	$Obj_Posts = new Posts();
 	$Obj_Posts->IDUser = $_SESSION['IDUser'];
 
@@ -33,9 +35,9 @@ if (isset($_SESSION['username']) && $_SESSION['logged'] != 'n') {
 
 	//MOSTRAR ERRORES
 	if (count($errors) > 0) {
-		echo "<li class=\"d-flex jc-between message error p-absolute\">$errors[0] <span onclick=\"hideMessage(true);\">X</span></li>";
+		echo $Obj_Settings->message("error", $errors[0]);
 	} else {
-		echo "<li class=\"d-flex jc-between message success p-absolute\">Publicación creada correctamente! <span onclick=\"hideMessage(true);\">X</span></li>";
+		echo $Obj_Settings->message("success", "Publicación creada correctamente!");
 
 		//ACTUALIZANDO EN BASE DE DATOS
 		$Obj_Posts->newPost();

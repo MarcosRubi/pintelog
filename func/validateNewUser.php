@@ -3,11 +3,13 @@ session_start();
 
 require_once '../bd/bd.php';
 require_once '../class/Users.php';
+require_once '../class/Settings.php';
 
 $Obj_Users = new Users();
+$Obj_Settings = new Settings();
 
-$username = $Obj_Users->clearParam($_POST['txtUser']);
-$email = $Obj_Users->clearParam($_POST['txtEmail']);
+$username = $Obj_Settings->clearParamText($_POST['txtUser']);
+$email = $Obj_Settings->clearParamText($_POST['txtEmail']);
 
 $Obj_Users->Username = $username;
 $Obj_Users->Email = $email;
@@ -42,11 +44,12 @@ mysqli_num_rows($Res_findByEmail) > 0 ? array_push($errors, "Este email ya está
 
 //MOSTRAR ERRORES
 if (count($errors) > 0) {
-	echo "<li class=\"d-flex jc-between message error p-absolute\">$errors[0] <span onclick=\"hideMessage(true);\">X</span></li>";
+	echo $Obj_Settings->message("error", $errors[0]);
 } else {
 	//AGREGANDO USUARIO A LA BASE DE DATOS
 	$Obj_Users->CreateUser();
-	echo "<li class=\"d-flex jc-between message success p-absolute\">Cuenta creada correctamente!<span onclick=\"hideMessage(true);\">X</span></li>";
+
+	echo $Obj_Settings->message("success", "Cuenta creada correctamente!");
 
 	if (isset(($_POST['chkRemember']))) {
 		$_SESSION['remember'] = "on";

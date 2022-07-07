@@ -2,13 +2,15 @@
 session_start();
 require_once '../bd/bd.php';
 require_once '../class/Users.php';
+require_once '../class/Settings.php';
 
 $Obj_Users = new Users();
+$Obj_Settings = new Settings();
 
-$username = $Obj_Users->clearParam($_POST['txtUser']);
+$username = $Obj_Settings->clearParamText($_POST['txtUser']);
 
 $Obj_Users->Username = $username;
-$Obj_Users->Password = md5(trim($_POST['txtPassword']));
+$Obj_Users->Password = md5($Obj_Settings->clearParamPassword($_POST['txtPassword']));
 
 $Res_findAccount = $Obj_Users->FindUser();
 $DataUser = $Res_findAccount->fetch_assoc();
@@ -26,9 +28,10 @@ mysqli_num_rows($Res_findAccount) == 0 ? array_push($errors, "Nombre de usuario 
 
 //MOSTRAR ERRORES
 if (count($errors) > 0) {
-	echo "<li class=\"d-flex jc-between message error p-absolute\">$errors[0] <span onclick=\"hideMessage(true);\">X</span></li>";
+	echo $Obj_Settings->message("error", $errors[0]);
 } else {
-	echo "<li class=\"d-flex jc-between message success p-absolute\">Bienvenido " . trim($_POST['txtUser']) . "<span onclick=\"hideMessage(true);\">X</span></li>";
+	$val = "Bienvenido " . trim($_POST['txtUser']); 
+	echo $Obj_Settings->message("success", $val);
 
 	//CREANDO VARIABLES DE SESION
 	isset($_POST['chkRemember']) ? $_SESSION['remember'] = "on" : $_SESSION['remember'] = "off";

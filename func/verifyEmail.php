@@ -7,6 +7,7 @@ $dotenv->load();
 
 require_once '../bd/bd.php';
 require_once '../class/Users.php';
+require_once '../class/Settings.php';
 require_once '../class/TemplateEmail.php';
 
 //CARGA AUTOLOAD DE COMPOSER
@@ -18,8 +19,9 @@ require '../vendor/autoload.php';
 
 $mail = new PHPMailer(true);
 $Obj_Users = new Users();
+$Obj_Settings = new Settings();
 
-$email = $Obj_Users->clearParam($_POST['txtEmailVerify']);
+$email = $Obj_Settings->clearParamText($_POST['txtEmailVerify']);
 $Obj_Users->Email = $email;
 
 $Res_findByEmail = $Obj_Users->FindByEmail();
@@ -40,7 +42,7 @@ mysqli_num_rows($Res_findByEmail) > 0 ?: array_push($errors, "No existe una cuen
 
 //MOSTRAR ERRORES
 if (count($errors) > 0) {
-	echo "<li class=\"d-flex jc-between message error p-absolute\">$errors[0] <span onclick=\"hideMessage(true);\">X</span></li>";
+	echo $Obj_Settings->message("error", $errors[0]);
 } else {
 	//ENVIAR EMAIL CON CODIGO
 	try {
@@ -49,27 +51,27 @@ if (count($errors) > 0) {
 		$mail->isSMTP();                                            //Send using SMTP
 		$mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
 		$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-		$mail->Username   = 'pinteloginc@gmail.com';                     //SMTP username
+		$mail->Username   = $_ENV['EMAIL'];                     //SMTP username
 		$mail->Password   = $_ENV['PASSWORDEMAIL'];                              //SMTP password
 		$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
 		$mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
 		//Recipients
-		$mail->setFrom('Pinteloginc@gmail.com', 'Pintelog');
+		$mail->setFrom($_ENV['EMAIL'], 'Pintelog');
 		$mail->addAddress($DataUser['Email'], $DataUser['Username']);     //Add a recipient
 
 		//Content
 		$mail->isHTML(true);                                  //Set email format to HTML
 		$mail->Subject = $Obj_Email->templateSubject();
-		$mail->Body    = $Obj_Email->templateBody();;
-		$mail->AltBody = strip_tags("SSS");
+		$mail->Body = $Obj_Email->templateBody();
+		$mail->AltBody = strip_tags($Obj_Email->altTemplateBody());
 
 		$mail->send();
-		setcookie("code", $key, time()+600);
+		setcookie("code", $key, time() + 600);
 		$_SESSION['emailResetPassword'] = $DataUser['Email'];
 		$_SESSION['user'] = $DataUser['Username'];
 
-		echo "<li class=\"d-flex jc-between message success p-absolute\">Email enviado correctamente!<span onclick=\"hideMessage(true);\">X</span></li>";
+		echo $Obj_Settings->message("success", "Email enviado correctamente!");
 
 		//MOSTRAR SIGUIENTE PASO
 		echo "<script type=\"text/javascript\">showModalPassword(2);</script>";
