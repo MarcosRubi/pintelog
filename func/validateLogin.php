@@ -26,13 +26,9 @@ mysqli_num_rows($Res_findAccount) == 0 ? array_push($errors, "Nombre de usuario 
 
 //MOSTRAR ERRORES
 if (count($errors) > 0) {
-	echo "<ul class=\"message error p-absolute\">";
-	echo "<li class=\"d-flex jc-between show\">$errors[0] <span onclick=\"hideMessage(true);\">X</span></li>";
-	echo "</ul>";
+	echo "<li class=\"d-flex jc-between message error p-absolute\">$errors[0] <span onclick=\"hideMessage(true);\">X</span></li>";
 } else {
-	echo "<ul class=\"message success p-absolute\">";
-	echo "<li class=\"d-flex jc-between show\">Bienvenido " . trim($_POST['txtUser']) . "<span onclick=\"hideMessage(true);\">X</span></li>";
-	echo "</ul>";
+	echo "<li class=\"d-flex jc-between message success p-absolute\">Bienvenido " . trim($_POST['txtUser']) . "<span onclick=\"hideMessage(true);\">X</span></li>";
 
 	//CREANDO VARIABLES DE SESION
 	isset($_POST['chkRemember']) ? $_SESSION['remember'] = "on" : $_SESSION['remember'] = "off";

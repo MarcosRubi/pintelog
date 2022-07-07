@@ -42,15 +42,11 @@ mysqli_num_rows($Res_findByEmail) > 0 ? array_push($errors, "Este email ya está
 
 //MOSTRAR ERRORES
 if (count($errors) > 0) {
-	echo "<ul class=\"message error p-absolute\">";
-	echo "<li class=\"d-flex jc-between show\">$errors[0] <span onclick=\"hideMessage(true);\">X</span></li>";
-	echo "</ul>";
+	echo "<li class=\"d-flex jc-between message error p-absolute\">$errors[0] <span onclick=\"hideMessage(true);\">X</span></li>";
 } else {
 	//AGREGANDO USUARIO A LA BASE DE DATOS
 	$Obj_Users->CreateUser();
-	echo "<ul class=\"message success p-absolute\">";
-	echo "<li class=\"d-flex jc-between show\">Cuenta creada correctamente!<span onclick=\"hideMessage(true);\">X</span></li>";
-	echo "</ul>";
+	echo "<li class=\"d-flex jc-between message success p-absolute\">Cuenta creada correctamente!<span onclick=\"hideMessage(true);\">X</span></li>";
 
 	if (isset(($_POST['chkRemember']))) {
 		$_SESSION['remember'] = "on";

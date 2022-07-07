@@ -157,30 +157,30 @@ function addFavoritePost(index) {
 
 function hideMessage(btn = false) {
 	btn
-		? document.querySelector("ul.message li.show").classList.remove("show")
+		? document.querySelector("li.message").classList.add("hide")
 		: setTimeout(() => {
-				document.querySelector("ul.message li.show")
-					? document
-							.querySelector("ul.message li.show")
-							.classList.remove("show")
+				document.querySelector("li.message")
+					? document.querySelector("li.message").classList.add("hide")
 					: "";
 		  }, 3000);
 }
 
 //Agregar clase active al item activo del menu
-function addItemActive(id){
-	const menu = document.querySelectorAll('nav.menu a');
+function addItemActive(id) {
+	const menu = document.querySelectorAll("nav.menu a");
 	menu.forEach((element, index) => {
-		element.addEventListener('click', ()=>{
-			if(index != 0){
-				document.querySelector('nav.menu a.active') ? document.querySelector('nav.menu a.active').classList.remove('active') : ""
-				element.classList.add('active')
-			} 			
-		})
+		element.addEventListener("click", () => {
+			if (index != 0) {
+				document.querySelector("nav.menu a.active")
+					? document
+							.querySelector("nav.menu a.active")
+							.classList.remove("active")
+					: "";
+				element.classList.add("active");
+			}
+		});
 	});
 }
-
-
 
 // COMPONENTES
 function getComponentHeader() {
@@ -347,7 +347,35 @@ function verifyEmail() {
 	res = xhr.responseText;
 	con.innerHTML = res.ConvertirResponseText();
 	hideMessage();
-	showModalPassword(step);
+}
+function codeVerify() {
+	let fd = new FormData(document.forms["frmCodeVerify"]);
+	xhr = new XMLHttpRequest();
+	xhr.open("POST", "func/verifyCode.php", false);
+	xhr.send(fd);
+	con = document.getElementById("messageContainer");
+	res = xhr.responseText;
+	con.innerHTML = res.ConvertirResponseText();
+	hideMessage();
+}
+function resendCode() {
+	xhr = new XMLHttpRequest();
+	xhr.open("POST", "func/resendCode.php", false);
+	xhr.send();
+	con = document.getElementById("messageContainer");
+	res = xhr.responseText;
+	con.innerHTML = res.ConvertirResponseText();
+	hideMessage();
+}
+function changePassword() {
+	let fd = new FormData(document.forms["frmNewPassword"]);
+	xhr = new XMLHttpRequest();
+	xhr.open("POST", "func/resetPassword.php", false);
+	xhr.send(fd);
+	con = document.getElementById("messageContainer");
+	res = xhr.responseText;
+	con.innerHTML = res.ConvertirResponseText();
+	hideMessage();
 }
 
 function EditUser() {

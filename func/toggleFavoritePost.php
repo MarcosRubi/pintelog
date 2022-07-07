@@ -14,21 +14,15 @@ if (isset($_SESSION['username']) && $_SESSION['logged'] != 'n') {
 
 	if (mysqli_num_rows($Res_IsFavorite) == 0) {
 		$Obj_Favorites->addFavorite();
-		echo "<ul class=\"message success\">";
-		echo "<li class=\"d-flex jc-between show\">Publicación agregada a favoritos.<span onclick=\"hideMessage(true);\">X</span></li>";
-		echo "</ul>";
+		echo "<li class=\"d-flex jc-between message success\">Publicación agregada a favoritos.<span onclick=\"hideMessage(true);\">X</span></li>";
 	} else {
 		$Data = $Res_IsFavorite->fetch_assoc();
 		if ($Data['Favorite'] == 'Y') {
 			$Obj_Favorites->editFavorite($Data['IDFavorite'], 'N');
-			echo "<ul class=\"message success\">";
-			echo "<li class=\"d-flex jc-between show\">Publicación eliminada de favoritos.<span onclick=\"hideMessage(true);\">X</span></li>";
-			echo "</ul>";
+			echo "<li class=\"d-flex jc-between message success\">Publicación eliminada de favoritos.<span onclick=\"hideMessage(true);\">X</span></li>";
 		} else {
 			$Obj_Favorites->editFavorite($Data['IDFavorite'], 'Y');
-			echo "<ul class=\"message success\">";
-			echo "<li class=\"d-flex jc-between show\">Publicación agregada a favoritos.<span onclick=\"hideMessage(true);\">X</span></li>";
-			echo "</ul>";
+			echo "<li class=\"d-flex jc-between message success\">Publicación agregada a favoritos.<span onclick=\"hideMessage(true);\">X</span></li>";
 		}
 	}
 }

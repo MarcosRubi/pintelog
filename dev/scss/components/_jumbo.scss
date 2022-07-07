@@ -1,39 +1,41 @@
 @import '../variables.scss';
-.message{
+
+.message {
 	position: fixed;
 	left: 50%;
 	top: 30px;
-    transform: translateX(-56%);
-	min-width: 150px;
+	transform: translateX(-56%);
 	max-width: 350px;
 	z-index: 900;
-	&.error li{
+	opacity: 1;
+	pointer-events: initial;
+	transition: all 400ms;
+	margin: 10px 20px;
+	padding: 10px 10px;
+	color: $text-color;
+	line-height: 1.2rem;
+	border-radius: 5px;
+
+	&.hide {
+		opacity: 0 !important;
+		pointer-events: none !important;
+	}
+
+	&.error {
 		background-color: indianred;
 	}
-	&.success li{
+
+	&.success {
 		background-color: #00897b;
 	}
-	&.info{
+
+	&.info {
 		background: #01579b;
 	}
 
-	li{
-		margin: 10px 20px;
-		padding: 10px 10px;
-		width: 100%;
-		color: $text-color;
-		line-height: 1.2rem;
-		border-radius: 5px;
-		opacity: 0;
-		pointer-events: none;
-		transition: all 400ms;
-		&.show{
-			opacity: 1 !important;
-			pointer-events: initial !important;
-		}
-	}
-	span{
+	span {
 		color: $text-secondary;
 		cursor: pointer;
+		padding-left: 20px;
 	}
 }

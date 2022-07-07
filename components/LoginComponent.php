@@ -37,7 +37,7 @@ session_start();
 				<input type="email" name="txtEmailVerify" id="txtEmailVerify" required="" /><span class="p-absolute"><i class="fa fa-envelope"></i></span>
 				<label class="p-absolute" for="txtEmail">Ingresar email </label>
 			</div>
-			<input class="btn btn-primary" type="submit" value="Siguiente" onclick="verifyEmail();" />
+			<input class="btn btn-primary" type="submit" value="Siguiente" onclick="verifyEmail();"/>
 		</form>
 	</div>
 </div>
@@ -45,15 +45,15 @@ session_start();
 	<div class="modal">
 		<div class="d-flex jc-end" onclick="javascript:hideModalPassword();"><span class="close">X</span></div>
 		<h2>Restablecer contraseña</h2>
-		<p>Ingresa el código que te enviamos por email</p>
-		<form action="#" method="post" onsubmit="return false;" id="step-2">
+		<p>Ingresa el código que te enviamos por email, si no lo vez verifica si esta en la carpeta spam</p>
+		<form action="#" method="post" name="frmCodeVerify" onsubmit="return false;" id="step-2">
 			<div class="input-group p-relative">
 				<input type="text" name="txtCodeVerify" id="txtCodeVerify" required="" /><span class="p-absolute"><i class="fa fa-envelope"></i></span>
 				<label class="p-absolute" for="txtCode">Ingresar código </label>
 			</div>
-			<input class="btn btn-primary" type="submit" value="Verificar" onclick="showModalPassword(3);" />
+			<input class="btn btn-primary" type="submit" value="Verificar" onclick="codeVerify();"/>
 			<div class="text-center">
-				<p>No has recibido un email? <a href="#">Reenviar código</a></p>
+				<p>No has recibido un email? <a href="#" onclick="resendCode();">Reenviar código</a></p>
 			</div>
 		</form>
 	</div>
@@ -63,12 +63,12 @@ session_start();
 		<div class="d-flex jc-end" onclick="javascript:hideModalPassword();"><span class="close">X</span></div>
 		<h2>Restablecer contraseña</h2>
 		<p>Ingrese la nueva contraseña</p>
-		<form action="#" method="post" onsubmit="return false;" id="step-3">
+		<form action="#" method="post" name="frmNewPassword" onsubmit="return false;" id="step-3">
 			<div class="input-group p-relative">
 				<input type="password" name="txtNewPassword" id="txtNewPassword" required="" /><span class="p-absolute"><i class="fa fa-key"></i></span>
 				<label class="p-absolute" for="txtNewPassword">Nueva contraseña</label><i class=" p-absolute fa fa-eye" id="toggle-password-new" onclick="showPassword()"></i>
 			</div>
-			<input class="btn btn-primary" type="submit" value="Actualizar" onclick="javascript:resetPassword('true');" />
+			<input class="btn btn-primary" type="submit" value="Actualizar" onclick="changePassword();" />
 		</form>
 	</div>
 </div>

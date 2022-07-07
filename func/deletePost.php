@@ -12,16 +12,10 @@ if (mysqli_num_rows($Res_Validate) > 0) {
 	$Res_Post = $Obj_Posts->delete($_GET['idPost']);
 
 	if ($Res_Post) {
-		echo "<ul class=\"message success\">";
-		echo "<li class=\"d-flex jc-between show\">Publicación eliminada correctamente.<span onclick=\"hideMessage(true);\">X</span></li>";
-		echo "</ul>";
+		echo "<li class=\"d-flex jc-between message success\">Publicación eliminada correctamente.<span onclick=\"hideMessage(true);\">X</span></li>";
 	} else {
-		echo "<ul class=\"message error\">";
-		echo "<li class=\"d-flex jc-between show\">Surgió un error al eliminar la publicación, vuelva a intentarlo más tarde.<span onclick=\"hideMessage(true);\">X</span></li>";
-		echo "</ul>";
+		echo "<li class=\"d-flex jc-between message error\">Surgió un error al eliminar la publicación, vuelva a intentarlo más tarde.<span onclick=\"hideMessage(true);\">X</span></li>";
 	}
 } else {
-	echo "<ul class=\"message error\">";
-	echo "<li class=\"d-flex jc-between show\">No eres el propietario, sigue intentando y serás baneado.<span onclick=\"hideMessage(true);\">X</span></li>";
-	echo "</ul>";
+	echo "<li class=\"d-flex jc-between message error\">No eres el propietario, sigue intentando y serás baneado.<span onclick=\"hideMessage(true);\">X</span></li>";
 }

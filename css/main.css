@@ -329,6 +329,7 @@ input[type=password],
 input[type=email],
 input[type=search] {
   width: 100%;
+  max-width: 430px;
   height: 50px;
   padding-left: 30px;
   border: 1px solid #90a4ae;
@@ -457,16 +458,28 @@ input[type=search] {
   left: 50%;
   top: 30px;
   transform: translateX(-56%);
-  min-width: 150px;
   max-width: 350px;
   z-index: 900;
+  opacity: 1;
+  pointer-events: initial;
+  transition: all 400ms;
+  margin: 10px 20px;
+  padding: 10px 10px;
+  color: #fff;
+  line-height: 1.2rem;
+  border-radius: 5px;
 }
 
-.message.error li {
+.message.hide {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.message.error {
   background-color: indianred;
 }
 
-.message.success li {
+.message.success {
   background-color: #00897b;
 }
 
@@ -474,26 +487,10 @@ input[type=search] {
   background: #01579b;
 }
 
-.message li {
-  margin: 10px 20px;
-  padding: 10px 10px;
-  width: 100%;
-  color: #fff;
-  line-height: 1.2rem;
-  border-radius: 5px;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 400ms;
-}
-
-.message li.show, .message li#divPassword.show {
-  opacity: 1 !important;
-  pointer-events: initial !important;
-}
-
 .message span {
   color: #90a4ae;
   cursor: pointer;
+  padding-left: 20px;
 }
 
 footer {
@@ -529,6 +526,7 @@ footer {
 .input-group {
   margin: 25px 0px;
   position: relative;
+  max-width: 430px;
 }
 .input-group i.fa-eye-slash,
 .input-group i.fa-eye {
